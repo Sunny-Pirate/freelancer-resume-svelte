@@ -102,7 +102,7 @@
     line-height: 1.3rem;
   }
   .signedInText {
-    padding-top: 0rem;
+    padding-top: 0;
     left: 4.6rem;
   }
   .avatar {
@@ -139,10 +139,21 @@
   .buttonPrimary:hover {
     box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.2);
   }
+  :global(nav){
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 420px;
+  }
   .navItems {
     margin-bottom: 2rem;
     padding: 0;
     list-style: none;
+    display: grid;
+      grid-template-columns: 1fr;
+      place-items: flex-end;
   }
   .navItem {
     display: inline-block;
