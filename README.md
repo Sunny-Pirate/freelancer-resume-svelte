@@ -11,6 +11,12 @@ in the Strapi CMS.
 - Contact: A section dedicated to contact details, including phone, email, and social profiles. Data is fetched from the "Contact" 
   component in the Strapi CMS.
 
+## Concept screenshots
+
+![The homepage](./docs/mockup-images/Index.png)
+![Portfolio](./docs/mockup-images/Portfolio.png)
+![Cantacts](./docs/mockup-images/Contacts.png)
+
 ## Local Setup
 To run the application locally, follow the steps below:
 
