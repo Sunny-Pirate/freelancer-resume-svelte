@@ -42,7 +42,7 @@ Or using yarn:
 yarn dev
 ```
 
-Upon executing these steps, the application should be running on your localhost at the specified port (e.g., http://localhost:5179).
+Upon executing these steps, the application should be running on your localhost at the specified port (e.g., http://localhost:5173).
 
 ## Conclusion
 This project aims to provide a professional and personalized presentation of one's resume, with the flexibility of filtering work experiences based on industry and easily accessible contact details. With the integration of Strapi as the CMS, the application is easily scalable and maintainable.
