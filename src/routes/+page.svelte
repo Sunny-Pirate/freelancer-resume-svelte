@@ -1,21 +1,25 @@
 <script lang="ts">
   let companyName = "DreamLab.Solutions"
   let sitePurposes = [
-    { label: "UX Designer", textEffect: "linear-gradient(90deg, purple, blue)" },
-    { label: "UI Developer", textEffect: "linear-gradient(90deg, blue, green)" },
-    { label: "Frontend Engineer", textEffect: "linear-gradient90deg, green, yellow" }
+    {
+      label: "UX Designer", textEffect:
+        "bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
+    },
+    { label: "UI Developer", textEffect: "bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-emerald-500" },
+    { label: "Frontend Engineer", textEffect: "bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-amber-500" }
 
   ]
 </script>
 
-<div>
-  <h1>{companyName}</h1>
-  <ul>
+<div class="py-10 flex flex-col items-center gap-6">
+  <h1 class="text-teal-700 text-center text-2xl font-bold">{companyName}</h1>
+  <ul class="grid grid-cols-3 text-sm max-w-2xl place-items-center">
     {#each sitePurposes as item}
-      <li>{item.label}</li>
+      <li class={item.textEffect}>{item.label}</li>
     {/each}
   </ul>
-  <p>👋 Hello! I'm Luca, a passionate Italian who's been chasing the digital frontier since the age of 9. Back in 1994, with wide-eyed
+  <p class="max-w-3xl">👋 Hello! I'm Luca, a passionate Italian who's been chasing the digital frontier since the age of 9. Back in 1994,
+    with wide-eyed
     wonder,
     I delved into the world of ones and zeros through a 286 PC, and boy, was it love at first sight!
 
@@ -58,5 +62,22 @@
         display: grid;
         grid-template-columns: 1fr;
         min-height: 100svh;
+    }
+
+    span.ndr::before {
+        content: "NDR: ";
+        font-weight: bold;
+    }
+
+    span.ndr {
+        margin-top: 2rem;
+        font-size: .88rem;
+        display: block;
+        text-align: right;
+    }
+
+    span.ndr::after {
+        content: " - Luca";
+        font-weight: bold;
     }
 </style>
