@@ -33,55 +33,28 @@
   <span class="ndr">Content created with the help of ChatGTP</span>
 </p>
 
-
-<style>
-    :global(*) {
+<svelte:head>
+  <title>DreamLab.Solutions by Luca Faccio</title>
+</svelte:head>
+<style lang="postcss">
+    :global(html) {
         margin: 0;
         padding: 0;
+        background: #fff;
+        color: #333;
     }
 
-    h1 {
-        text-align: center;
-        font-size: 2.56rem;
-        background: linear-gradient(90deg, #27ae60, #408bd1);
-        background-clip: text;
-        fill: transparent;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    ul {
-        list-style: none;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        flex-direction: row;
-        place-items: center;
-    }
-
-    ul li {
-        padding: .44rem 1rem;
-    }
-
-    span.ndr::before {
-        content: "NDR: ";
-        font-weight: bold;
-    }
-
-    span.ndr {
-        margin-top: 2rem;
-        font-size: .88rem;
-        display: block;
-        text-align: right;
-    }
-
-    span.ndr::after {
-        content: " - Luca";
-        font-weight: bold;
-    }
-
-    p{
+    :global(body) {
+        font-family: 'Exo 2', sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+        background-color: theme(colors.white);
+        color: theme(colors.neutral.500);
         font-size: 1.2rem;
-        line-height: 1.8rem;
-        margin-top: 2rem;
+        line-height: 1.2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 100svh;
     }
 </style>
