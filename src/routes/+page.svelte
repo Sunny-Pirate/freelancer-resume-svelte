@@ -11,31 +11,18 @@
   ]
 </script>
 
-<div class="py-10 flex flex-col items-center gap-6">
+<div class="py-10 grid grid-rows-homepage-hero-vertical justify-items-center gap-6">
   <h1 class="text-teal-700 text-center text-2xl font-bold">{companyName}</h1>
   <ul class="grid grid-cols-3 text-sm max-w-2xl place-items-center">
     {#each sitePurposes as item}
       <li class={item.textEffect}>{item.label}</li>
     {/each}
   </ul>
-  <p class="max-w-3xl">👋 Hello! I'm Luca, a passionate Italian who's been chasing the digital frontier since the age of 9. Back in 1994,
-    with wide-eyed
-    wonder,
-    I delved into the world of ones and zeros through a 286 PC, and boy, was it love at first sight!
-
-    School? Ah, the days when I fortified my foundations in math and physics, unknowingly setting the stage for the tech whizz in me. Beyond
-    the textbooks, life had its own curriculum. Be it flipping pizzas, tending to gardens, or selling construction materials, every hat I
-    wore
-    taught me patterns - patterns that now shape the digital solutions I craft for diverse industries.
-
-    For 14 vivid years, I waved the green and blue flags of my beloved Saletto, living the art of 'sbandieratore'. These very colors now
-    breathe life into my logo, a nod to my roots.
-
-    Racing? Oh, the adrenaline! I've been burning virtual rubber since 2006. Still revving it up with my original online team, our proudest
-    moment? Conquering the 24-hour online race at Nurburgring.
-
-    From the lanes of Saletto to the digital lanes of the Netherlands, my journey's been nothing short of an adventure. Here's to life,
-    passions, and the quirks in between. Buckle up, and let's ride this journey together! 🚀
+  <p class="max-w-3xl place-self-center">👋 Hey, I'm Luca! Raised amidst computers, technology, and science, IT quickly became
+    more than
+    just a hobby.
+    Graduating in aeronautics in 2006, I honed a deeply mathematical mindset. Through experiences across diverse industries, I now design
+    unique web solutions, capturing the essence of each sector. Ready to meet the brain behind the code? Dive into my CV! 🚀
     <span class="ndr">Content created with the help of ChatGTP</span>
   </p>
 </div>

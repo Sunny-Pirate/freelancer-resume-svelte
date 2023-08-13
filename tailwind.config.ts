@@ -53,7 +53,8 @@ export default {
       },
       gridTemplateRows: {
         // Site-specific row configuration for the main layout of a webpage.
-        "webpage-main-layout": "minmax(48px, auto) 1fr minmax(40px, auto)"
+        "webpage-main-layout": "minmax(48px, auto) 1fr minmax(40px, auto)",
+        "homepage-hero-vertical": "minmax(48px, auto) minmax(48px, auto) 1fr"
 
       }
     }
