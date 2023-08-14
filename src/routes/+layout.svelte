@@ -26,7 +26,10 @@
   <header class="h-1/3">
     <NavigationBar />
   </header>
+
+  <div class="py-10 grid grid-rows-homepage-hero-vertical justify-items-center gap-6">
   <slot />
+  </div>
   <Footer />
 </div>
 

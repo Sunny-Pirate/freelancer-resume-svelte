@@ -5,7 +5,7 @@
 </script>
 
 <div class="">
-  <h1>Projects and Working experiences</h1>
+  <h1 class="pageTitle">Projects and Working experiences</h1>
   <div>
     <p>Filter by Industry</p>
     <div class="filter-container">

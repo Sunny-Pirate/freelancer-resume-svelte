@@ -11,21 +11,21 @@
   ]
 </script>
 
-<div class="py-10 grid grid-rows-homepage-hero-vertical justify-items-center gap-6">
-  <h1 class="text-teal-700 text-center text-2xl font-bold">{companyName}</h1>
+<h1 class="pageTitle">{companyName}</h1>
   <ul class="grid grid-cols-3 text-sm max-w-2xl place-items-center">
     {#each sitePurposes as item}
       <li class={item.textEffect}>{item.label}</li>
     {/each}
   </ul>
-  <p class="max-w-3xl place-self-center">👋 Hey, I'm Luca! Raised amidst computers, technology, and science, IT quickly became
-    more than
-    just a hobby.
+
+<p class="pageContent">👋 Hey, I'm Luca! Raised amidst computers, technology, and
+  science, <span class="text-brand-700 font-medium text-lg">IT</span>
+  quickly became more than just a hobby.<br />
     Graduating in aeronautics in 2006, I honed a deeply mathematical mindset. Through experiences across diverse industries, I now design
     unique web solutions, capturing the essence of each sector. Ready to meet the brain behind the code? Dive into my CV! 🚀
     <span class="ndr">Content created with the help of ChatGTP</span>
   </p>
-</div>
+
 <svelte:head>
   <title>DreamLab.Solutions by Luca Faccio</title>
 </svelte:head>
@@ -51,20 +51,25 @@
         min-height: 100svh;
     }
 
+    :global(.pageTitle) {
+        @apply text-brand-500 text-center text-2xl font-bold;
+    }
+
+    :global(.pageContent) {
+        @apply max-w-xl place-self-center px-2 text-justify sm:text-left leading-7;
+    }
+
     span.ndr::before {
         content: "NDR: ";
         font-weight: bold;
     }
 
     span.ndr {
-        margin-top: 2rem;
-        font-size: .88rem;
-        display: block;
-        text-align: right;
+        @apply block mt-4 text-xs text-right;
     }
 
     span.ndr::after {
-        content: " - Luca";
+        content: " - Luca F.";
         font-weight: bold;
     }
 </style>

@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss"
 import defaultTheme from "tailwindcss/defaultTheme"
 import colors from "tailwindcss/colors"
+import tailwindForms from "@tailwindcss/forms"
+
 
 export default {
   content: [
@@ -48,13 +50,15 @@ export default {
         // Site-specific column configuration for the hero section horizontal.
         // The first column should take up 1fr of the available space.
         // The second column should take up 1fr or a maximum available space.
-        "homepage-hero-horizontal": "max-content max-content"
+        "homepage-hero-horizontal": "max-content max-content",
+        "4bit-grid": "repeat(4, 1fr)"
 
       },
       gridTemplateRows: {
         // Site-specific row configuration for the main layout of a webpage.
-        "webpage-main-layout": "minmax(48px, auto) 1fr minmax(40px, auto)",
-        "homepage-hero-vertical": "minmax(48px, auto) minmax(48px, auto) 1fr"
+        "webpage-main-layout": "minmax(48px, auto) 1fr minmax(96px, auto)",
+        "homepage-hero-vertical": "minmax(48px, auto) minmax(48px, auto) 1fr",
+        "4bit-grid": "repeat(4, 1fr)"
 
       }
     }
@@ -97,6 +101,8 @@ export default {
       variants: ["responsive", "hover", "focus", "active"]
     }
   ],
-  plugins: []
+  plugins: [
+    tailwindForms
+  ]
 } satisfies Config
 
