@@ -1,4 +1,5 @@
 <script>
+
   import { faGithub, faLinkedin, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 
   import { PUBLIC_GITHUB_URL, PUBLIC_LINKEDIN_URL, PUBLIC_WABUSINESS_URL } from "$env/static/public"
