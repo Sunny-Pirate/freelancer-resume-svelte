@@ -1,8 +1,10 @@
 import { sveltekit } from "@sveltejs/kit/vite"
+import { reactivePreprocess } from "svelte-reactive-preprocessor"
 
-/** @type {import('vite').UserConfig} */
+/** @type {import("vite").UserConfig} */
 const config = {
-  plugins: [sveltekit()],
+  plugins: [sveltekit(),
+    reactivePreprocess()]
 }
 
 export default config

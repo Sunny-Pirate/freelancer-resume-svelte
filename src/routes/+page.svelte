@@ -11,54 +11,23 @@
   ]
 </script>
 
-<h1 class="pageTitle">{companyName}</h1>
-  <ul class="grid grid-cols-3 text-sm max-w-2xl place-items-center">
-    {#each sitePurposes as item}
-      <li class={item.textEffect}>{item.label}</li>
-    {/each}
-  </ul>
+<!--{@debug sitePurposes}-->
 
-<p class="pageContent">👋 Hey, I'm Luca! Raised amidst computers, technology, and
-  science, <span class="text-brand-700 font-medium text-lg">IT</span>
-  quickly became more than just a hobby.<br />
-    Graduating in aeronautics in 2006, I honed a deeply mathematical mindset. Through experiences across diverse industries, I now design
-    unique web solutions, capturing the essence of each sector. Ready to meet the brain behind the code? Dive into my CV! 🚀
-    <span class="ndr">Content created with the help of ChatGTP</span>
-  </p>
+<div class="grid grid-cols-1 grid-rows-1 min-h-full">
+  <div class="grid grid-rows-2">
+    <h1 class="pageTitle place-self-center">{companyName}</h1>
+    <div class="grid grid-cols-2 place-items-center">
+      <a href="/index">Website</a>
+      <a href="/kitsite">Kitsite</a>
+    </div>
+  </div>
+</div>
 
 <svelte:head>
   <title>DreamLab.Solutions by Luca Faccio</title>
 </svelte:head>
+
 <style lang="postcss">
-    :global(html) {
-        margin: 0;
-        padding: 0;
-        background: #fff;
-        color: #333;
-    }
-
-    :global(body) {
-        font-family: 'Exo 2', sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-        background-color: theme(colors.white);
-        color: theme(colors.neutral.500);
-        font-size: 1.2rem;
-        line-height: 1.2rem;
-        display: grid;
-        grid-template-columns: 1fr;
-        min-height: 100svh;
-    }
-
-    :global(.pageTitle) {
-        @apply text-brand-500 text-center text-2xl font-bold;
-    }
-
-    :global(.pageContent) {
-        @apply max-w-xl place-self-center px-2 text-justify sm:text-left leading-7;
-    }
-
     span.ndr::before {
         content: "NDR: ";
         font-weight: bold;
