@@ -1,0 +1,11 @@
+schema: ${STRAPI_API_URL}/graphql
+documents:
+  - '**/*.{graphql,gql}'
+generates:
+  src/lib/graphql/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+    config:
+      useTypeImports: true

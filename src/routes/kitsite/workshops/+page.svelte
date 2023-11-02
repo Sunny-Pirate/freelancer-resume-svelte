@@ -1,10 +1,4 @@
-<script>
-
-  const getAllWorkshops = () => {
-    fetch('http://localhost:3000/workshops')
-      .then(response => response.json())
-      .then(data => console.log(data))
-  }
+<script context="module" lang="ts">
 </script>
 
 

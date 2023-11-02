@@ -1,0 +1,14 @@
+query getAllWorkshops {
+    workshops{
+        data {
+            attributes {
+                title
+            }
+        }
+        meta {
+            pagination {
+                total
+            }
+        }
+    }
+}
