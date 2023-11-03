@@ -1,3 +1,4 @@
+schema: ${STRAPI_API_URL}/graphql
 extensions:
   endpoints:
     Default GraphQL Endpoint:

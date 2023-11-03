@@ -1,0 +1,10 @@
+query getWebsiteHomepage{
+webpages(filters: {slug: {eq: "dream-lab-solutions"}}){
+    data {
+        attributes {
+            title
+            content
+        }
+    }
+}
+}
