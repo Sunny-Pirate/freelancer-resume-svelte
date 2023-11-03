@@ -1,9 +1,9 @@
 schema: ${STRAPI_API_URL}/graphql
 extensions:
   endpoints:
-    Default GraphQL Endpoint:
+    production:
       url: ${STRAPI_API_URL}/graphql
       headers:
         user-agent: JS GraphQL
-        Authorization: Bearer ${STRAPI_API_KEY}
+        Authorization: 'Bearer ${STRAPI_API_KEY}'
       introspect: false

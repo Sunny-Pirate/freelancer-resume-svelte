@@ -39,7 +39,8 @@
     "svelte-reactive-preprocessor": "^0.8.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
-    "vite": "4.4.9"
+    "vite": "4.4.9",
+    "ts-node": "^10.9.1"
   },
   "type": "module"
 }
