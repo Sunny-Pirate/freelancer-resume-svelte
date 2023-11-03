@@ -1,0 +1,12 @@
+query getWorkshopIDBySlug($slug: String!) {
+ workshops(filters: {slug: {eq: $slug}}){
+     data {
+         id
+     }
+     meta {
+         pagination {
+             total
+         }
+     }
+ }
+}

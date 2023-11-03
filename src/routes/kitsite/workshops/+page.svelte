@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Workshop, WorkshopEntityResponseCollection } from "$lib/graphql/types"
+  import type { PageData } from "./$types"
 
-  export let data
+  export let data: PageData;
   export let wsTotal = data.wsTotal
   export let workshops = data.workshops as Workshop[]
 
@@ -17,8 +18,11 @@
   </div>
   <ul>
     {#each workshops as workshop}
+      {@const wsPath = `/kitsite/workshops/${workshop.slug}`}
       <li>
-        {workshop.title}
+        <a href="{wsPath}">
+          {workshop.title}
+        </a>
       </li>
     {/each}
   </ul>

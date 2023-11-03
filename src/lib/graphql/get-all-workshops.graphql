@@ -3,6 +3,7 @@ query getAllWorkshops {
         data {
             attributes {
                 title
+                slug
             }
         }
         meta {

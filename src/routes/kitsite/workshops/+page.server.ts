@@ -10,7 +10,8 @@ export async function load() {
   const workshops = workshopsRes.workshops?.data
     .map((value: WorkshopEntity, index) => {
       return {
-        title: value.attributes?.title || "A title"
+        title: value.attributes?.title || "A title",
+        slug: value.attributes?.slug || "",
       } as Workshop
     }) as Workshop[]
 
