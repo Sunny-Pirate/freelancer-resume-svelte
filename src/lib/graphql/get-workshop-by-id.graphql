@@ -1,0 +1,30 @@
+
+query getWorkshopByID($id: ID!) {
+    workshop(id: $id){
+        data {
+            id
+            attributes{
+                title
+                location
+                date
+                duration
+                price
+                state
+                price
+                agenda
+                availableSlots
+                participants{
+                    ...ParticipantInfo
+                }
+                gallery{
+                    ...GalleryImagesData
+                }
+                coverImage{
+                    ...CoverImageData
+                }
+                updatedAt
+            }
+        }
+
+    }
+}

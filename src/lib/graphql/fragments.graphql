@@ -1,0 +1,44 @@
+fragment CoverImageData on UploadFileEntityResponse{
+    data{
+        attributes{
+            name
+            url
+            caption
+            alternativeText
+            hash
+
+        }
+    }
+}
+
+fragment ParticipantInfo on ComponentEventsWorkshopParticipant {
+    fullName
+    requestDate
+    requestStatus
+    skillLevel
+    numberOfParticipants
+    unitPrice
+}
+
+fragment GalleryImagesData on UploadFileRelationResponseCollection {
+    data{
+        attributes{
+            name
+            url
+            caption
+            alternativeText
+        }
+    }
+}
+
+fragment SlidesData on UploadFileRelationResponseCollection{
+    data {
+        attributes {
+            url
+            name
+            alternativeText
+            previewUrl
+            caption
+        }
+    }
+}

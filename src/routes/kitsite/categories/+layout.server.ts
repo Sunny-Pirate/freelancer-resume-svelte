@@ -1,4 +1,4 @@
-import type { LayoutLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 import { STRAPI_API_URL } from '$env/static/private';
 export const load = (async () => {
 
@@ -11,4 +11,4 @@ export const load = (async () => {
     return {
         getCategories
     };
-}) satisfies LayoutLoad;
+}) satisfies LayoutServerLoad;

@@ -1,24 +1,3 @@
-fragment CoverImageData on UploadFileEntityResponse{
-    data{
-        attributes{
-            name
-            url
-            caption
-            alternativeText
-            hash
-
-        }
-    }
-}
-
-fragment ParticipantInfo on ComponentEventsWorkshopParticipant {
-    fullName
-    requestDate
-    requestStatus
-    skillLevel
-    numberOfParticipants
-    unitPrice
-}
 
 query getAllWorkshops {
     # TODO: Remove publicationState on testing or production stage
@@ -28,6 +7,10 @@ query getAllWorkshops {
             attributes{
                 title
                 date
+                slug
+                gallery{
+                    ...GalleryImagesData
+                }
                 duration
                 agenda
                 availableSlots
@@ -40,6 +23,11 @@ query getAllWorkshops {
                 participants{
                     ...ParticipantInfo
                 }
+                slides{
+                    ...SlidesData
+                }
+                updatedAt
+                createdAt
             }
         }
         meta{

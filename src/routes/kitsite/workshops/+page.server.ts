@@ -1,7 +1,6 @@
 import { graphQLClient } from "$lib/graphql/graphql-client"
+import type { Workshop, UploadFileEntityResponse, UploadFileRelationResponseCollection } from "$lib/graphql/types"
 import { GetAllWorkshopsDocument } from "$lib/graphql/types"
-import type { Workshop, WorkshopEntity } from "$lib/graphql/types"
-import { invalidate } from "$app/navigation"
 
 export async function load() {
 
@@ -9,17 +8,26 @@ export async function load() {
 
   const wsTotal: number = workshopsRes.workshops?.meta.pagination.total || 0
 
-  const workshops = workshopsRes.workshops?.data.map((value: WorkshopEntity, index: number) => {
-    return {
-      title: value.attributes?.title || "A title",
-      slug: value.attributes?.slug || "",
-      date: value.attributes?.date || "",
-      agenda: value.attributes?.agenda || "",
-      availableSlots: value.attributes?.availableSlots || 0,
-      participants: value.attributes?.participants || 0,
-      coverImage: value.attributes?.coverImage || ""
-    } as Workshop
-  }) as Workshop[]
+  // debugger
+
+  const workshops = workshopsRes.workshops?.data.map((value) => ({
+    title: value.attributes?.title || "",
+    slug: value.attributes?.slug || "",
+    coverImage: value.attributes?.coverImage as UploadFileEntityResponse,
+    participants: value.attributes?.participants || -1,
+    availableSlots: value.attributes?.availableSlots || -1,
+    date: value.attributes?.date || "",
+    agenda: value.attributes?.agenda || "",
+    price: value.attributes?.price || 128.64,
+    duration: value.attributes?.duration || -1,
+    gallery: value.attributes?.gallery as UploadFileRelationResponseCollection,
+    slides: value.attributes?.slides as UploadFileRelationResponseCollection,
+    location: value.attributes?.location || "",
+    state: value.attributes?.state || "",
+    updatedAt: value.attributes?.updatedAt || "",
+    createdAt: value.attributes?.createdAt || "",
+  } as Workshop))
+  // debugger
 
   return {
     wsTotal,
