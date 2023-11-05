@@ -16,6 +16,10 @@
   <!-- Background image with overlay -->
   <img class="w-full h-96 object-cover" src={workshop.coverImage?.data?.attributes?.url} alt={workshop.title} />
   <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center p-4">
+
+    <a href="/experiments/workshops" class="absolute top-4 left-4 text-white">
+      Back to Workshops
+    </a>
     <!-- Title and brief description overlaid on the image -->
     <h1 class="text-4xl font-bold text-white">{workshop.title}</h1>
     <p class="text-xl text-white">{@html workshop.agenda}</p>

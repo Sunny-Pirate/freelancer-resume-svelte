@@ -9,3 +9,9 @@ generates:
       - typed-document-node
     config:
       useTypeImports: true
+  src/lib/graphql/schema.graphql: # This is the new line to add
+    plugins:
+      - schema-ast
+    config:
+      - includeDirectives: true
+      - includeIntrospectionTypes: true

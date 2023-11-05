@@ -1,0 +1,2308 @@
+input BooleanFilterInput {
+  and: [Boolean]
+  between: [Boolean]
+  contains: Boolean
+  containsi: Boolean
+  endsWith: Boolean
+  eq: Boolean
+  eqi: Boolean
+  gt: Boolean
+  gte: Boolean
+  in: [Boolean]
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  nei: Boolean
+  not: BooleanFilterInput
+  notContains: Boolean
+  notContainsi: Boolean
+  notIn: [Boolean]
+  notNull: Boolean
+  null: Boolean
+  or: [Boolean]
+  startsWith: Boolean
+}
+
+type Category {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CategoryRelationResponseCollection
+  createdAt: DateTime
+  description: String
+  flavor: FlavorEntityResponse
+  inventory_items(filters: InventoryItemFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InventoryItemRelationResponseCollection
+  name: String
+  parent: CategoryEntityResponse
+  products(filters: ProductFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ProductRelationResponseCollection
+  publishedAt: DateTime
+  updatedAt: DateTime
+}
+
+type CategoryEntity {
+  attributes: Category
+  id: ID
+}
+
+type CategoryEntityResponse {
+  data: CategoryEntity
+}
+
+type CategoryEntityResponseCollection {
+  data: [CategoryEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input CategoryFiltersInput {
+  and: [CategoryFiltersInput]
+  categories: CategoryFiltersInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  flavor: FlavorFiltersInput
+  id: IDFilterInput
+  inventory_items: InventoryItemFiltersInput
+  name: StringFilterInput
+  not: CategoryFiltersInput
+  or: [CategoryFiltersInput]
+  parent: CategoryFiltersInput
+  products: ProductFiltersInput
+  publishedAt: DateTimeFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input CategoryInput {
+  categories: [ID]
+  description: String
+  flavor: ID
+  inventory_items: [ID]
+  name: String
+  parent: ID
+  products: [ID]
+  publishedAt: DateTime
+}
+
+type CategoryRelationResponseCollection {
+  data: [CategoryEntity!]!
+}
+
+type ComponentContactsEMail {
+  address: String
+  id: ID!
+  scope: ENUM_COMPONENTCONTACTSEMAIL_SCOPE
+}
+
+input ComponentContactsEMailFiltersInput {
+  address: StringFilterInput
+  and: [ComponentContactsEMailFiltersInput]
+  not: ComponentContactsEMailFiltersInput
+  or: [ComponentContactsEMailFiltersInput]
+  scope: StringFilterInput
+}
+
+input ComponentContactsEMailInput {
+  address: String
+  id: ID
+  scope: ENUM_COMPONENTCONTACTSEMAIL_SCOPE
+}
+
+type ComponentContactsPhone {
+  Country: ENUM_COMPONENTCONTACTSPHONE_COUNTRY
+  id: ID!
+  phoneString: String
+}
+
+input ComponentContactsPhoneFiltersInput {
+  Country: StringFilterInput
+  and: [ComponentContactsPhoneFiltersInput]
+  not: ComponentContactsPhoneFiltersInput
+  or: [ComponentContactsPhoneFiltersInput]
+  phoneString: StringFilterInput
+}
+
+input ComponentContactsPhoneInput {
+  Country: ENUM_COMPONENTCONTACTSPHONE_COUNTRY
+  id: ID
+  phoneString: String
+}
+
+type ComponentContactsSocial {
+  id: ID!
+  link: String
+  type: ENUM_COMPONENTCONTACTSSOCIAL_TYPE
+}
+
+input ComponentContactsSocialFiltersInput {
+  and: [ComponentContactsSocialFiltersInput]
+  link: StringFilterInput
+  not: ComponentContactsSocialFiltersInput
+  or: [ComponentContactsSocialFiltersInput]
+  type: StringFilterInput
+}
+
+input ComponentContactsSocialInput {
+  id: ID
+  link: String
+  type: ENUM_COMPONENTCONTACTSSOCIAL_TYPE
+}
+
+type ComponentEventsWorkshopParticipant {
+  fullName: String
+  id: ID!
+  numberOfParticipants: Int
+  requestDate: DateTime
+  requestStatus: ENUM_COMPONENTEVENTSWORKSHOPPARTICIPANT_REQUESTSTATUS
+  skillLevel: ENUM_COMPONENTEVENTSWORKSHOPPARTICIPANT_SKILLLEVEL
+  unitPrice: Float
+}
+
+input ComponentEventsWorkshopParticipantFiltersInput {
+  and: [ComponentEventsWorkshopParticipantFiltersInput]
+  fullName: StringFilterInput
+  not: ComponentEventsWorkshopParticipantFiltersInput
+  numberOfParticipants: IntFilterInput
+  or: [ComponentEventsWorkshopParticipantFiltersInput]
+  requestDate: DateTimeFilterInput
+  requestStatus: StringFilterInput
+  skillLevel: StringFilterInput
+  unitPrice: FloatFilterInput
+}
+
+input ComponentEventsWorkshopParticipantInput {
+  fullName: String
+  id: ID
+  numberOfParticipants: Int
+  requestDate: DateTime
+  requestStatus: ENUM_COMPONENTEVENTSWORKSHOPPARTICIPANT_REQUESTSTATUS
+  skillLevel: ENUM_COMPONENTEVENTSWORKSHOPPARTICIPANT_SKILLLEVEL
+  unitPrice: Float
+}
+
+type ComponentFrontendNavigationlink {
+  id: ID!
+  isExternal: Boolean
+  label: String
+  url: String
+}
+
+input ComponentFrontendNavigationlinkFiltersInput {
+  and: [ComponentFrontendNavigationlinkFiltersInput]
+  isExternal: BooleanFilterInput
+  label: StringFilterInput
+  not: ComponentFrontendNavigationlinkFiltersInput
+  or: [ComponentFrontendNavigationlinkFiltersInput]
+  url: StringFilterInput
+}
+
+input ComponentFrontendNavigationlinkInput {
+  id: ID
+  isExternal: Boolean
+  label: String
+  url: String
+}
+
+type ComponentKitsiteItemDetail {
+  UM: ENUM_COMPONENTKITSITEITEMDETAIL_UM
+  id: ID!
+  item: InventoryItemEntityResponse
+  quantity: Int
+}
+
+input ComponentKitsiteItemDetailFiltersInput {
+  UM: StringFilterInput
+  and: [ComponentKitsiteItemDetailFiltersInput]
+  item: InventoryItemFiltersInput
+  not: ComponentKitsiteItemDetailFiltersInput
+  or: [ComponentKitsiteItemDetailFiltersInput]
+  quantity: IntFilterInput
+}
+
+input ComponentKitsiteItemDetailInput {
+  UM: ENUM_COMPONENTKITSITEITEMDETAIL_UM
+  id: ID
+  item: ID
+  quantity: Int
+}
+
+type ComponentKitsiteOrderableItems {
+  id: ID!
+  quantity: Float
+  supplier: SupplierEntityResponse
+}
+
+type ComponentKitsitePresentationMode {
+  id: ID!
+  situation: ENUM_COMPONENTKITSITEPRESENTATIONMODE_SITUATION
+  tasks(filters: TaskFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TaskRelationResponseCollection
+}
+
+input ComponentKitsitePresentationModeFiltersInput {
+  and: [ComponentKitsitePresentationModeFiltersInput]
+  not: ComponentKitsitePresentationModeFiltersInput
+  or: [ComponentKitsitePresentationModeFiltersInput]
+  situation: StringFilterInput
+  tasks: TaskFiltersInput
+}
+
+input ComponentKitsitePresentationModeInput {
+  id: ID
+  situation: ENUM_COMPONENTKITSITEPRESENTATIONMODE_SITUATION
+  tasks: [ID]
+}
+
+type ComponentKitsiteProductSupplier {
+  code: String
+  id: ID!
+  supplier: SupplierEntityResponse
+}
+
+input ComponentKitsiteProductSupplierFiltersInput {
+  and: [ComponentKitsiteProductSupplierFiltersInput]
+  code: StringFilterInput
+  not: ComponentKitsiteProductSupplierFiltersInput
+  or: [ComponentKitsiteProductSupplierFiltersInput]
+  supplier: SupplierFiltersInput
+}
+
+input ComponentKitsiteProductSupplierInput {
+  code: String
+  id: ID
+  supplier: ID
+}
+
+type ComponentKitsiteRecipeStep {
+  description: String
+  id: ID!
+  order: Int
+}
+
+input ComponentKitsiteRecipeStepFiltersInput {
+  and: [ComponentKitsiteRecipeStepFiltersInput]
+  description: StringFilterInput
+  not: ComponentKitsiteRecipeStepFiltersInput
+  or: [ComponentKitsiteRecipeStepFiltersInput]
+  order: IntFilterInput
+}
+
+input ComponentKitsiteRecipeStepInput {
+  description: String
+  id: ID
+  order: Int
+}
+
+type ComponentKitsiteSelfAssessment {
+  id: ID!
+  rating: ENUM_COMPONENTKITSITESELFASSESSMENT_RATING
+}
+
+input ComponentKitsiteSelfAssessmentFiltersInput {
+  and: [ComponentKitsiteSelfAssessmentFiltersInput]
+  not: ComponentKitsiteSelfAssessmentFiltersInput
+  or: [ComponentKitsiteSelfAssessmentFiltersInput]
+  rating: StringFilterInput
+}
+
+input ComponentKitsiteSelfAssessmentInput {
+  id: ID
+  rating: ENUM_COMPONENTKITSITESELFASSESSMENT_RATING
+}
+
+type ComponentKitsiteStorageLocation {
+  id: ID!
+  resource: ResourceEntityResponse
+  status: ENUM_COMPONENTKITSITESTORAGELOCATION_STATUS
+}
+
+type ComponentKitsiteWorkflowItem {
+  delegateTo: UsersPermissionsUserEntityResponse
+  duration: Int
+  followUpDate: Date
+  followUpDays: Int
+  id: ID!
+  items(filters: ComponentKitsiteItemDetailFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsiteItemDetail]
+  order: Int
+  selfAssessment: ComponentKitsiteSelfAssessment
+  status: ENUM_COMPONENTKITSITEWORKFLOWITEM_STATUS
+  task: TaskEntityResponse
+}
+
+input ComponentKitsiteWorkflowItemFiltersInput {
+  and: [ComponentKitsiteWorkflowItemFiltersInput]
+  delegateTo: UsersPermissionsUserFiltersInput
+  duration: IntFilterInput
+  followUpDate: DateFilterInput
+  followUpDays: IntFilterInput
+  items: ComponentKitsiteItemDetailFiltersInput
+  not: ComponentKitsiteWorkflowItemFiltersInput
+  or: [ComponentKitsiteWorkflowItemFiltersInput]
+  order: IntFilterInput
+  selfAssessment: ComponentKitsiteSelfAssessmentFiltersInput
+  status: StringFilterInput
+  task: TaskFiltersInput
+}
+
+input ComponentKitsiteWorkflowItemInput {
+  delegateTo: ID
+  duration: Int
+  followUpDate: Date
+  followUpDays: Int
+  id: ID
+  items: [ComponentKitsiteItemDetailInput]
+  order: Int
+  selfAssessment: ComponentKitsiteSelfAssessmentInput
+  status: ENUM_COMPONENTKITSITEWORKFLOWITEM_STATUS
+  task: ID
+}
+
+type ComponentLogisticsDeliveryByDate {
+  date: Date
+  id: ID!
+}
+
+type ComponentLogisticsDeliveryByDaysOfTheWeek {
+  deliveredEvery: Int
+  friday: Boolean
+  id: ID!
+  monday: Boolean
+  saturday: Boolean
+  sunday: Boolean
+  thursday: Boolean
+  tuesday: Boolean
+  wednesday: Boolean
+}
+
+type ComponentLogisticsDeliveryByInternational {
+  country: ENUM_COMPONENTLOGISTICSDELIVERYBYINTERNATIONAL_COUNTRY
+  estimatedTransitTime: Int
+  id: ID!
+  notes: String
+}
+
+type ComponentLogisticsOrderableSupplierQty {
+  code: String
+  id: ID!
+  isAvailable: Boolean
+  quantity: Float
+  supplier: SupplierEntityResponse
+  unitPrice: Float
+}
+
+input ComponentLogisticsOrderableSupplierQtyFiltersInput {
+  and: [ComponentLogisticsOrderableSupplierQtyFiltersInput]
+  code: StringFilterInput
+  isAvailable: BooleanFilterInput
+  not: ComponentLogisticsOrderableSupplierQtyFiltersInput
+  or: [ComponentLogisticsOrderableSupplierQtyFiltersInput]
+  quantity: FloatFilterInput
+  supplier: SupplierFiltersInput
+  unitPrice: FloatFilterInput
+}
+
+input ComponentLogisticsOrderableSupplierQtyInput {
+  code: String
+  id: ID
+  isAvailable: Boolean
+  quantity: Float
+  supplier: ID
+  unitPrice: Float
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+input DateFilterInput {
+  and: [Date]
+  between: [Date]
+  contains: Date
+  containsi: Date
+  endsWith: Date
+  eq: Date
+  eqi: Date
+  gt: Date
+  gte: Date
+  in: [Date]
+  lt: Date
+  lte: Date
+  ne: Date
+  nei: Date
+  not: DateFilterInput
+  notContains: Date
+  notContainsi: Date
+  notIn: [Date]
+  notNull: Boolean
+  null: Boolean
+  or: [Date]
+  startsWith: Date
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input DateTimeFilterInput {
+  and: [DateTime]
+  between: [DateTime]
+  contains: DateTime
+  containsi: DateTime
+  endsWith: DateTime
+  eq: DateTime
+  eqi: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  ne: DateTime
+  nei: DateTime
+  not: DateTimeFilterInput
+  notContains: DateTime
+  notContainsi: DateTime
+  notIn: [DateTime]
+  notNull: Boolean
+  null: Boolean
+  or: [DateTime]
+  startsWith: DateTime
+}
+
+enum ENUM_COMPONENTCONTACTSEMAIL_SCOPE {
+  Admin
+  Feedback
+  Finance
+  Flavors
+  HR
+  Info
+  Inventory
+  Legal
+  Maintenance
+  Marketing
+  Orders
+  Other
+  Partnerships
+  Production
+  QualityControl
+  Recipes
+  Sales
+  Service
+  Support
+  Tasks
+  Tech
+}
+
+enum ENUM_COMPONENTCONTACTSPHONE_COUNTRY {
+  Italy
+  The_Netherlands
+  United_Kingdom
+}
+
+enum ENUM_COMPONENTCONTACTSSOCIAL_TYPE {
+  Atlassian
+  GitHub
+  Indeed
+  LinkedIn
+  Twitter
+  Webpage
+}
+
+enum ENUM_COMPONENTEVENTSWORKSHOPPARTICIPANT_REQUESTSTATUS {
+  Cancelled
+  Confirmed
+  In_Negotiation
+  Received
+  Rejected
+}
+
+enum ENUM_COMPONENTEVENTSWORKSHOPPARTICIPANT_SKILLLEVEL {
+  Advanced
+  Basic
+  Beginner
+  Intermediate
+  Novice
+  Professional
+}
+
+enum ENUM_COMPONENTKITSITEITEMDETAIL_UM {
+  Box
+  Gram
+  Kilogram
+  Liter
+  Milliliter
+  Other
+  Packet
+  Piece
+}
+
+enum ENUM_COMPONENTKITSITEPRESENTATIONMODE_SITUATION {
+  At_the_bar
+  At_the_table
+  In_a_cone
+  In_a_cup
+  Take_Away
+}
+
+enum ENUM_COMPONENTKITSITESELFASSESSMENT_RATING {
+  Excellent
+  Fair
+  Good
+  Not_Assessed
+  Poor
+}
+
+enum ENUM_COMPONENTKITSITESTORAGELOCATION_STATUS {
+  Arrived
+  For_refill
+  In_sale
+}
+
+enum ENUM_COMPONENTKITSITEWORKFLOWITEM_STATUS {
+  Active
+  Delegated
+  Draft
+  Interrupted
+  Scheduled
+}
+
+enum ENUM_COMPONENTLOGISTICSDELIVERYBYINTERNATIONAL_COUNTRY {
+  Argentina
+  Italy
+  Spain
+}
+
+enum ENUM_INVENTORYITEM_STATUS {
+  Available
+  Damaged
+  Discontinued
+  Expired
+  InTransit
+  OnHold
+  OutofStock
+  PendingRestock
+  Reserved
+}
+
+enum ENUM_INVENTORYITEM_UM {
+  Box
+  Gram
+  Kilogram
+  Liter
+  Milliliter
+  Other
+  Packet
+  Piece
+}
+
+enum ENUM_ORDER_STATUS {
+  Anomalous
+  Approved
+  Archived
+  Auto_generated
+  Cancelled
+  Completed
+  Deleted
+  Error
+  In_Progress
+  In_review
+  Pending
+  Rejected
+}
+
+enum ENUM_RESOURCE_STATUS {
+  Available
+  In_Use
+  Out_of_Service
+  Under_Maintenance
+}
+
+enum ENUM_RESOURCE_TYPE {
+  Consumable
+  Equipment
+  Space
+}
+
+enum ENUM_TASK_FREQUENCY {
+  Daily
+  Fortuitous
+  Monthly
+  Seasonal
+  Weekly
+}
+
+enum ENUM_TASK_TYPE {
+  Available
+  Issue
+  Maintenance
+  Suggested
+}
+
+enum ENUM_WEBPAGE_TYPE {
+  article
+  project
+}
+
+enum ENUM_WORKSHOP_STATE {
+  Cancelled
+  Completed
+  Draft
+  Scheduled
+  Sold_Out
+}
+
+type Error {
+  code: String!
+  message: String
+}
+
+input FileInfoInput {
+  alternativeText: String
+  caption: String
+  name: String
+}
+
+type Flavor {
+  category: CategoryEntityResponse
+  createdAt: DateTime
+  description: String
+  images(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  isAvailableInStore: Boolean
+  isOnlineAvailable: Boolean
+  isOnlineVisible: Boolean
+  name: String
+  products(filters: ProductFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ProductRelationResponseCollection
+  publishedAt: DateTime
+  recipe: RecipeEntityResponse
+  updatedAt: DateTime
+}
+
+type FlavorEntity {
+  attributes: Flavor
+  id: ID
+}
+
+type FlavorEntityResponse {
+  data: FlavorEntity
+}
+
+type FlavorEntityResponseCollection {
+  data: [FlavorEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input FlavorFiltersInput {
+  and: [FlavorFiltersInput]
+  category: CategoryFiltersInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  isAvailableInStore: BooleanFilterInput
+  isOnlineAvailable: BooleanFilterInput
+  isOnlineVisible: BooleanFilterInput
+  name: StringFilterInput
+  not: FlavorFiltersInput
+  or: [FlavorFiltersInput]
+  products: ProductFiltersInput
+  publishedAt: DateTimeFilterInput
+  recipe: RecipeFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input FlavorInput {
+  category: ID
+  description: String
+  images: [ID]
+  isAvailableInStore: Boolean
+  isOnlineAvailable: Boolean
+  isOnlineVisible: Boolean
+  name: String
+  products: [ID]
+  publishedAt: DateTime
+  recipe: ID
+}
+
+type FlavorRelationResponseCollection {
+  data: [FlavorEntity!]!
+}
+
+input FloatFilterInput {
+  and: [Float]
+  between: [Float]
+  contains: Float
+  containsi: Float
+  endsWith: Float
+  eq: Float
+  eqi: Float
+  gt: Float
+  gte: Float
+  in: [Float]
+  lt: Float
+  lte: Float
+  ne: Float
+  nei: Float
+  not: FloatFilterInput
+  notContains: Float
+  notContainsi: Float
+  notIn: [Float]
+  notNull: Boolean
+  null: Boolean
+  or: [Float]
+  startsWith: Float
+}
+
+union GenericMorph = Category | ComponentContactsEMail | ComponentContactsPhone | ComponentContactsSocial | ComponentEventsWorkshopParticipant | ComponentFrontendNavigationlink | ComponentKitsiteItemDetail | ComponentKitsiteOrderableItems | ComponentKitsitePresentationMode | ComponentKitsiteProductSupplier | ComponentKitsiteRecipeStep | ComponentKitsiteSelfAssessment | ComponentKitsiteStorageLocation | ComponentKitsiteWorkflowItem | ComponentLogisticsDeliveryByDate | ComponentLogisticsDeliveryByDaysOfTheWeek | ComponentLogisticsDeliveryByInternational | ComponentLogisticsOrderableSupplierQty | Flavor | I18NLocale | InventoryBatch | InventoryItem | Menu | Order | PersonalInformation | Product | Project | Recipe | Resource | Shift | Supplier | Task | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Webpage | WorkExperience | WorkingIndutry | Workshop
+
+type I18NLocale {
+  code: String
+  createdAt: DateTime
+  name: String
+  updatedAt: DateTime
+}
+
+"""A string used to identify an i18n locale"""
+scalar I18NLocaleCode
+
+type I18NLocaleEntity {
+  attributes: I18NLocale
+  id: ID
+}
+
+type I18NLocaleEntityResponse {
+  data: I18NLocaleEntity
+}
+
+type I18NLocaleEntityResponseCollection {
+  data: [I18NLocaleEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input I18NLocaleFiltersInput {
+  and: [I18NLocaleFiltersInput]
+  code: StringFilterInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: I18NLocaleFiltersInput
+  or: [I18NLocaleFiltersInput]
+  updatedAt: DateTimeFilterInput
+}
+
+input IDFilterInput {
+  and: [ID]
+  between: [ID]
+  contains: ID
+  containsi: ID
+  endsWith: ID
+  eq: ID
+  eqi: ID
+  gt: ID
+  gte: ID
+  in: [ID]
+  lt: ID
+  lte: ID
+  ne: ID
+  nei: ID
+  not: IDFilterInput
+  notContains: ID
+  notContainsi: ID
+  notIn: [ID]
+  notNull: Boolean
+  null: Boolean
+  or: [ID]
+  startsWith: ID
+}
+
+input IntFilterInput {
+  and: [Int]
+  between: [Int]
+  contains: Int
+  containsi: Int
+  endsWith: Int
+  eq: Int
+  eqi: Int
+  gt: Int
+  gte: Int
+  in: [Int]
+  lt: Int
+  lte: Int
+  ne: Int
+  nei: Int
+  not: IntFilterInput
+  notContains: Int
+  notContainsi: Int
+  notIn: [Int]
+  notNull: Boolean
+  null: Boolean
+  or: [Int]
+  startsWith: Int
+}
+
+type InventoryBatch {
+  createdAt: DateTime
+  expirationDate: Date
+  inventory_item: InventoryItemEntityResponse
+  publishedAt: DateTime
+  quantity: Float
+  updatedAt: DateTime
+}
+
+type InventoryBatchEntity {
+  attributes: InventoryBatch
+  id: ID
+}
+
+type InventoryBatchEntityResponse {
+  data: InventoryBatchEntity
+}
+
+type InventoryBatchEntityResponseCollection {
+  data: [InventoryBatchEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input InventoryBatchFiltersInput {
+  and: [InventoryBatchFiltersInput]
+  createdAt: DateTimeFilterInput
+  expirationDate: DateFilterInput
+  id: IDFilterInput
+  inventory_item: InventoryItemFiltersInput
+  not: InventoryBatchFiltersInput
+  or: [InventoryBatchFiltersInput]
+  publishedAt: DateTimeFilterInput
+  quantity: FloatFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input InventoryBatchInput {
+  expirationDate: Date
+  inventory_item: ID
+  publishedAt: DateTime
+  quantity: Float
+}
+
+type InventoryBatchRelationResponseCollection {
+  data: [InventoryBatchEntity!]!
+}
+
+type InventoryItem {
+  UM: ENUM_INVENTORYITEM_UM
+  category: CategoryEntityResponse
+  createdAt: DateTime
+  description: String
+  inventory_batches(filters: InventoryBatchFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InventoryBatchRelationResponseCollection
+  name: String
+  price: Float
+  publishedAt: DateTime
+  quantity: Float
+  resources(filters: ResourceFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ResourceRelationResponseCollection
+  status: ENUM_INVENTORYITEM_STATUS
+  supply_info(filters: ComponentLogisticsOrderableSupplierQtyFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentLogisticsOrderableSupplierQty]
+  updatedAt: DateTime
+}
+
+type InventoryItemEntity {
+  attributes: InventoryItem
+  id: ID
+}
+
+type InventoryItemEntityResponse {
+  data: InventoryItemEntity
+}
+
+type InventoryItemEntityResponseCollection {
+  data: [InventoryItemEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input InventoryItemFiltersInput {
+  UM: StringFilterInput
+  and: [InventoryItemFiltersInput]
+  category: CategoryFiltersInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  inventory_batches: InventoryBatchFiltersInput
+  name: StringFilterInput
+  not: InventoryItemFiltersInput
+  or: [InventoryItemFiltersInput]
+  price: FloatFilterInput
+  publishedAt: DateTimeFilterInput
+  quantity: FloatFilterInput
+  resources: ResourceFiltersInput
+  status: StringFilterInput
+  supply_info: ComponentLogisticsOrderableSupplierQtyFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input InventoryItemInput {
+  UM: ENUM_INVENTORYITEM_UM
+  category: ID
+  description: String
+  inventory_batches: [ID]
+  name: String
+  price: Float
+  publishedAt: DateTime
+  quantity: Float
+  resources: [ID]
+  status: ENUM_INVENTORYITEM_STATUS
+  supply_info: [ComponentLogisticsOrderableSupplierQtyInput]
+}
+
+type InventoryItemRelationResponseCollection {
+  data: [InventoryItemEntity!]!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+input JSONFilterInput {
+  and: [JSON]
+  between: [JSON]
+  contains: JSON
+  containsi: JSON
+  endsWith: JSON
+  eq: JSON
+  eqi: JSON
+  gt: JSON
+  gte: JSON
+  in: [JSON]
+  lt: JSON
+  lte: JSON
+  ne: JSON
+  nei: JSON
+  not: JSONFilterInput
+  notContains: JSON
+  notContainsi: JSON
+  notIn: [JSON]
+  notNull: Boolean
+  null: Boolean
+  or: [JSON]
+  startsWith: JSON
+}
+
+type Menu {
+  createdAt: DateTime
+  links(filters: ComponentFrontendNavigationlinkFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentFrontendNavigationlink]
+  publishedAt: DateTime
+  scope: String
+  slug: String
+  updatedAt: DateTime
+}
+
+type MenuEntity {
+  attributes: Menu
+  id: ID
+}
+
+type MenuEntityResponse {
+  data: MenuEntity
+}
+
+type MenuEntityResponseCollection {
+  data: [MenuEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input MenuFiltersInput {
+  and: [MenuFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  links: ComponentFrontendNavigationlinkFiltersInput
+  not: MenuFiltersInput
+  or: [MenuFiltersInput]
+  publishedAt: DateTimeFilterInput
+  scope: StringFilterInput
+  slug: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input MenuInput {
+  links: [ComponentFrontendNavigationlinkInput]
+  publishedAt: DateTime
+  scope: String
+  slug: String
+}
+
+type Mutation {
+  """Change user password. Confirm with the current password."""
+  changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+  createCategory(data: CategoryInput!): CategoryEntityResponse
+  createFlavor(data: FlavorInput!): FlavorEntityResponse
+  createInventoryBatch(data: InventoryBatchInput!): InventoryBatchEntityResponse
+  createInventoryItem(data: InventoryItemInput!): InventoryItemEntityResponse
+  createMenu(data: MenuInput!): MenuEntityResponse
+  createOrder(data: OrderInput!): OrderEntityResponse
+  createPersonalInformationLocalization(data: PersonalInformationInput, id: ID, locale: I18NLocaleCode): PersonalInformationEntityResponse
+  createProduct(data: ProductInput!): ProductEntityResponse
+  createProject(data: ProjectInput!): ProjectEntityResponse
+  createRecipe(data: RecipeInput!): RecipeEntityResponse
+  createResource(data: ResourceInput!, locale: I18NLocaleCode): ResourceEntityResponse
+  createResourceLocalization(data: ResourceInput, id: ID, locale: I18NLocaleCode): ResourceEntityResponse
+  createShift(data: ShiftInput!): ShiftEntityResponse
+  createSupplier(data: SupplierInput!): SupplierEntityResponse
+  createTask(data: TaskInput!, locale: I18NLocaleCode): TaskEntityResponse
+  createTaskLocalization(data: TaskInput, id: ID, locale: I18NLocaleCode): TaskEntityResponse
+  createUploadFile(data: UploadFileInput!): UploadFileEntityResponse
+  createUploadFolder(data: UploadFolderInput!): UploadFolderEntityResponse
+
+  """Create a new role"""
+  createUsersPermissionsRole(data: UsersPermissionsRoleInput!): UsersPermissionsCreateRolePayload
+
+  """Create a new user"""
+  createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
+  createWebpage(data: WebpageInput!): WebpageEntityResponse
+  createWorkExperience(data: WorkExperienceInput!, locale: I18NLocaleCode): WorkExperienceEntityResponse
+  createWorkExperienceLocalization(data: WorkExperienceInput, id: ID, locale: I18NLocaleCode): WorkExperienceEntityResponse
+  createWorkingIndutry(data: WorkingIndutryInput!, locale: I18NLocaleCode): WorkingIndutryEntityResponse
+  createWorkingIndutryLocalization(data: WorkingIndutryInput, id: ID, locale: I18NLocaleCode): WorkingIndutryEntityResponse
+  createWorkshop(data: WorkshopInput!): WorkshopEntityResponse
+  deleteCategory(id: ID!): CategoryEntityResponse
+  deleteFlavor(id: ID!): FlavorEntityResponse
+  deleteInventoryBatch(id: ID!): InventoryBatchEntityResponse
+  deleteInventoryItem(id: ID!): InventoryItemEntityResponse
+  deleteMenu(id: ID!): MenuEntityResponse
+  deleteOrder(id: ID!): OrderEntityResponse
+  deletePersonalInformation(locale: I18NLocaleCode): PersonalInformationEntityResponse
+  deleteProduct(id: ID!): ProductEntityResponse
+  deleteProject(id: ID!): ProjectEntityResponse
+  deleteRecipe(id: ID!): RecipeEntityResponse
+  deleteResource(id: ID!, locale: I18NLocaleCode): ResourceEntityResponse
+  deleteShift(id: ID!): ShiftEntityResponse
+  deleteSupplier(id: ID!): SupplierEntityResponse
+  deleteTask(id: ID!, locale: I18NLocaleCode): TaskEntityResponse
+  deleteUploadFile(id: ID!): UploadFileEntityResponse
+  deleteUploadFolder(id: ID!): UploadFolderEntityResponse
+
+  """Delete an existing role"""
+  deleteUsersPermissionsRole(id: ID!): UsersPermissionsDeleteRolePayload
+
+  """Delete an existing user"""
+  deleteUsersPermissionsUser(id: ID!): UsersPermissionsUserEntityResponse!
+  deleteWebpage(id: ID!): WebpageEntityResponse
+  deleteWorkExperience(id: ID!, locale: I18NLocaleCode): WorkExperienceEntityResponse
+  deleteWorkingIndutry(id: ID!, locale: I18NLocaleCode): WorkingIndutryEntityResponse
+  deleteWorkshop(id: ID!): WorkshopEntityResponse
+
+  """Confirm an email users email address"""
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+
+  """Request a reset password token"""
+  forgotPassword(email: String!): UsersPermissionsPasswordPayload
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  multipleUpload(field: String, files: [Upload]!, ref: String, refId: ID): [UploadFileEntityResponse]!
+
+  """Register a user"""
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  removeFile(id: ID!): UploadFileEntityResponse
+
+  """
+  Reset user password. Confirm with a code (resetToken from forgotPassword)
+  """
+  resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+  updateCategory(data: CategoryInput!, id: ID!): CategoryEntityResponse
+  updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
+  updateFlavor(data: FlavorInput!, id: ID!): FlavorEntityResponse
+  updateInventoryBatch(data: InventoryBatchInput!, id: ID!): InventoryBatchEntityResponse
+  updateInventoryItem(data: InventoryItemInput!, id: ID!): InventoryItemEntityResponse
+  updateMenu(data: MenuInput!, id: ID!): MenuEntityResponse
+  updateOrder(data: OrderInput!, id: ID!): OrderEntityResponse
+  updatePersonalInformation(data: PersonalInformationInput!, locale: I18NLocaleCode): PersonalInformationEntityResponse
+  updateProduct(data: ProductInput!, id: ID!): ProductEntityResponse
+  updateProject(data: ProjectInput!, id: ID!): ProjectEntityResponse
+  updateRecipe(data: RecipeInput!, id: ID!): RecipeEntityResponse
+  updateResource(data: ResourceInput!, id: ID!, locale: I18NLocaleCode): ResourceEntityResponse
+  updateShift(data: ShiftInput!, id: ID!): ShiftEntityResponse
+  updateSupplier(data: SupplierInput!, id: ID!): SupplierEntityResponse
+  updateTask(data: TaskInput!, id: ID!, locale: I18NLocaleCode): TaskEntityResponse
+  updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
+  updateUploadFolder(data: UploadFolderInput!, id: ID!): UploadFolderEntityResponse
+
+  """Update an existing role"""
+  updateUsersPermissionsRole(data: UsersPermissionsRoleInput!, id: ID!): UsersPermissionsUpdateRolePayload
+
+  """Update an existing user"""
+  updateUsersPermissionsUser(data: UsersPermissionsUserInput!, id: ID!): UsersPermissionsUserEntityResponse!
+  updateWebpage(data: WebpageInput!, id: ID!): WebpageEntityResponse
+  updateWorkExperience(data: WorkExperienceInput!, id: ID!, locale: I18NLocaleCode): WorkExperienceEntityResponse
+  updateWorkingIndutry(data: WorkingIndutryInput!, id: ID!, locale: I18NLocaleCode): WorkingIndutryEntityResponse
+  updateWorkshop(data: WorkshopInput!, id: ID!): WorkshopEntityResponse
+  upload(field: String, file: Upload!, info: FileInfoInput, ref: String, refId: ID): UploadFileEntityResponse!
+}
+
+type Order {
+  createdAt: DateTime
+  dateCreated: Date
+  dateToExecute: Date
+  estimatedArrival: Date
+  items(filters: ComponentKitsiteItemDetailFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsiteItemDetail]
+  publishedAt: DateTime
+  status: ENUM_ORDER_STATUS
+  supplier: SupplierEntityResponse
+  updatedAt: DateTime
+}
+
+type OrderEntity {
+  attributes: Order
+  id: ID
+}
+
+type OrderEntityResponse {
+  data: OrderEntity
+}
+
+type OrderEntityResponseCollection {
+  data: [OrderEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input OrderFiltersInput {
+  and: [OrderFiltersInput]
+  createdAt: DateTimeFilterInput
+  dateCreated: DateFilterInput
+  dateToExecute: DateFilterInput
+  estimatedArrival: DateFilterInput
+  id: IDFilterInput
+  items: ComponentKitsiteItemDetailFiltersInput
+  not: OrderFiltersInput
+  or: [OrderFiltersInput]
+  publishedAt: DateTimeFilterInput
+  status: StringFilterInput
+  supplier: SupplierFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input OrderInput {
+  dateCreated: Date
+  dateToExecute: Date
+  estimatedArrival: Date
+  items: [ComponentKitsiteItemDetailInput]
+  publishedAt: DateTime
+  status: ENUM_ORDER_STATUS
+  supplier: ID
+}
+
+type Pagination {
+  page: Int!
+  pageCount: Int!
+  pageSize: Int!
+  total: Int!
+}
+
+input PaginationArg {
+  limit: Int
+  page: Int
+  pageSize: Int
+  start: Int
+}
+
+type PersonalInformation {
+  address: String
+  bio: String
+  city: String
+  country: String
+  createdAt: DateTime
+  dateOfBirth: Date
+  emails(filters: ComponentContactsEMailFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentContactsEMail]
+  fullName: String
+  jobTitle: String
+  locale: String
+  localizations(publicationState: PublicationState = LIVE): PersonalInformationRelationResponseCollection
+  nationality: String
+  phones(filters: ComponentContactsPhoneFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentContactsPhone]
+  publishedAt: DateTime
+  socials(filters: ComponentContactsSocialFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentContactsSocial]
+  updatedAt: DateTime
+}
+
+type PersonalInformationEntity {
+  attributes: PersonalInformation
+  id: ID
+}
+
+type PersonalInformationEntityResponse {
+  data: PersonalInformationEntity
+}
+
+input PersonalInformationInput {
+  address: String
+  bio: String
+  city: String
+  country: String
+  dateOfBirth: Date
+  emails: [ComponentContactsEMailInput]
+  fullName: String
+  jobTitle: String
+  nationality: String
+  phones: [ComponentContactsPhoneInput]
+  publishedAt: DateTime
+  socials: [ComponentContactsSocialInput]
+}
+
+type PersonalInformationRelationResponseCollection {
+  data: [PersonalInformationEntity!]!
+}
+
+type Product {
+  category: CategoryEntityResponse
+  cost: Float
+  cover: UploadFileEntityResponse
+  createdAt: DateTime
+  description: String
+  flavors(filters: FlavorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): FlavorRelationResponseCollection
+  gallery(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  isActive: Boolean
+  isAvailableInStore: Boolean
+  isFeatured: Boolean
+  isOnlineAvailable: Boolean
+  isOnlineVisible: Boolean
+  items(filters: InventoryItemFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InventoryItemRelationResponseCollection
+  name: String
+  presentationModes(filters: ComponentKitsitePresentationModeFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsitePresentationMode]
+  price: Float
+  publishedAt: DateTime
+  suppliers(filters: ComponentKitsiteProductSupplierFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsiteProductSupplier]
+  updatedAt: DateTime
+}
+
+type ProductEntity {
+  attributes: Product
+  id: ID
+}
+
+type ProductEntityResponse {
+  data: ProductEntity
+}
+
+type ProductEntityResponseCollection {
+  data: [ProductEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ProductFiltersInput {
+  and: [ProductFiltersInput]
+  category: CategoryFiltersInput
+  cost: FloatFilterInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  flavors: FlavorFiltersInput
+  id: IDFilterInput
+  isActive: BooleanFilterInput
+  isAvailableInStore: BooleanFilterInput
+  isFeatured: BooleanFilterInput
+  isOnlineAvailable: BooleanFilterInput
+  isOnlineVisible: BooleanFilterInput
+  items: InventoryItemFiltersInput
+  name: StringFilterInput
+  not: ProductFiltersInput
+  or: [ProductFiltersInput]
+  presentationModes: ComponentKitsitePresentationModeFiltersInput
+  price: FloatFilterInput
+  publishedAt: DateTimeFilterInput
+  suppliers: ComponentKitsiteProductSupplierFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ProductInput {
+  category: ID
+  cost: Float
+  cover: ID
+  description: String
+  flavors: [ID]
+  gallery: [ID]
+  isActive: Boolean
+  isAvailableInStore: Boolean
+  isFeatured: Boolean
+  isOnlineAvailable: Boolean
+  isOnlineVisible: Boolean
+  items: [ID]
+  name: String
+  presentationModes: [ComponentKitsitePresentationModeInput]
+  price: Float
+  publishedAt: DateTime
+  suppliers: [ComponentKitsiteProductSupplierInput]
+}
+
+type ProductRelationResponseCollection {
+  data: [ProductEntity!]!
+}
+
+type Project {
+  Title: String
+  cover: UploadFileEntityResponse
+  createdAt: DateTime
+  demoUrl: String
+  description: String
+  githubUrl: String
+  isPrivate: Boolean
+  publishedAt: DateTime
+  slug: String
+  updatedAt: DateTime
+  work_experience: WorkExperienceEntityResponse
+}
+
+type ProjectEntity {
+  attributes: Project
+  id: ID
+}
+
+type ProjectEntityResponse {
+  data: ProjectEntity
+}
+
+type ProjectEntityResponseCollection {
+  data: [ProjectEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ProjectFiltersInput {
+  Title: StringFilterInput
+  and: [ProjectFiltersInput]
+  createdAt: DateTimeFilterInput
+  demoUrl: StringFilterInput
+  description: StringFilterInput
+  githubUrl: StringFilterInput
+  id: IDFilterInput
+  isPrivate: BooleanFilterInput
+  not: ProjectFiltersInput
+  or: [ProjectFiltersInput]
+  publishedAt: DateTimeFilterInput
+  slug: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  work_experience: WorkExperienceFiltersInput
+}
+
+input ProjectInput {
+  Title: String
+  cover: ID
+  demoUrl: String
+  description: String
+  githubUrl: String
+  isPrivate: Boolean
+  publishedAt: DateTime
+  slug: String
+  work_experience: ID
+}
+
+type ProjectRelationResponseCollection {
+  data: [ProjectEntity!]!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type Query {
+  categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): CategoryEntityResponseCollection
+  category(id: ID): CategoryEntityResponse
+  flavor(id: ID): FlavorEntityResponse
+  flavors(filters: FlavorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): FlavorEntityResponseCollection
+  i18NLocale(id: ID): I18NLocaleEntityResponse
+  i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
+  inventoryBatch(id: ID): InventoryBatchEntityResponse
+  inventoryBatches(filters: InventoryBatchFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InventoryBatchEntityResponseCollection
+  inventoryItem(id: ID): InventoryItemEntityResponse
+  inventoryItems(filters: InventoryItemFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InventoryItemEntityResponseCollection
+  me: UsersPermissionsMe
+  menu(id: ID): MenuEntityResponse
+  menus(filters: MenuFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): MenuEntityResponseCollection
+  order(id: ID): OrderEntityResponse
+  orders(filters: OrderFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): OrderEntityResponseCollection
+  personalInformation(locale: I18NLocaleCode, publicationState: PublicationState = LIVE): PersonalInformationEntityResponse
+  product(id: ID): ProductEntityResponse
+  products(filters: ProductFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ProductEntityResponseCollection
+  project(id: ID): ProjectEntityResponse
+  projects(filters: ProjectFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ProjectEntityResponseCollection
+  recipe(id: ID): RecipeEntityResponse
+  recipes(filters: RecipeFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): RecipeEntityResponseCollection
+  resource(id: ID, locale: I18NLocaleCode): ResourceEntityResponse
+  resources(filters: ResourceFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ResourceEntityResponseCollection
+  shift(id: ID): ShiftEntityResponse
+  shifts(filters: ShiftFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ShiftEntityResponseCollection
+  supplier(id: ID): SupplierEntityResponse
+  suppliers(filters: SupplierFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): SupplierEntityResponseCollection
+  task(id: ID, locale: I18NLocaleCode): TaskEntityResponse
+  tasks(filters: TaskFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TaskEntityResponseCollection
+  uploadFile(id: ID): UploadFileEntityResponse
+  uploadFiles(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileEntityResponseCollection
+  uploadFolder(id: ID): UploadFolderEntityResponse
+  uploadFolders(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderEntityResponseCollection
+  usersPermissionsRole(id: ID): UsersPermissionsRoleEntityResponse
+  usersPermissionsRoles(filters: UsersPermissionsRoleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsRoleEntityResponseCollection
+  usersPermissionsUser(id: ID): UsersPermissionsUserEntityResponse
+  usersPermissionsUsers(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserEntityResponseCollection
+  webpage(id: ID): WebpageEntityResponse
+  webpages(filters: WebpageFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WebpageEntityResponseCollection
+  workExperience(id: ID, locale: I18NLocaleCode): WorkExperienceEntityResponse
+  workExperiences(filters: WorkExperienceFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkExperienceEntityResponseCollection
+  workingIndutries(filters: WorkingIndutryFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkingIndutryEntityResponseCollection
+  workingIndutry(id: ID, locale: I18NLocaleCode): WorkingIndutryEntityResponse
+  workshop(id: ID): WorkshopEntityResponse
+  workshops(filters: WorkshopFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkshopEntityResponseCollection
+}
+
+type Recipe {
+  createdAt: DateTime
+  description: String
+  flavors(filters: FlavorFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): FlavorRelationResponseCollection
+  ingredients(filters: ComponentKitsiteItemDetailFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsiteItemDetail]
+  name: String
+  publishedAt: DateTime
+  steps(filters: ComponentKitsiteRecipeStepFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsiteRecipeStep]
+  updatedAt: DateTime
+  version: String
+}
+
+type RecipeEntity {
+  attributes: Recipe
+  id: ID
+}
+
+type RecipeEntityResponse {
+  data: RecipeEntity
+}
+
+type RecipeEntityResponseCollection {
+  data: [RecipeEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input RecipeFiltersInput {
+  and: [RecipeFiltersInput]
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  flavors: FlavorFiltersInput
+  id: IDFilterInput
+  ingredients: ComponentKitsiteItemDetailFiltersInput
+  name: StringFilterInput
+  not: RecipeFiltersInput
+  or: [RecipeFiltersInput]
+  publishedAt: DateTimeFilterInput
+  steps: ComponentKitsiteRecipeStepFiltersInput
+  updatedAt: DateTimeFilterInput
+  version: StringFilterInput
+}
+
+input RecipeInput {
+  description: String
+  flavors: [ID]
+  ingredients: [ComponentKitsiteItemDetailInput]
+  name: String
+  publishedAt: DateTime
+  steps: [ComponentKitsiteRecipeStepInput]
+  version: String
+}
+
+type Resource {
+  createdAt: DateTime
+  inventory_items(filters: InventoryItemFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): InventoryItemRelationResponseCollection
+  locale: String
+  localizations(filters: ResourceFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ResourceRelationResponseCollection
+  name: String
+  publishedAt: DateTime
+  status: ENUM_RESOURCE_STATUS
+  supplier: SupplierEntityResponse
+  tasks(filters: TaskFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TaskRelationResponseCollection
+  type: ENUM_RESOURCE_TYPE
+  updatedAt: DateTime
+}
+
+type ResourceEntity {
+  attributes: Resource
+  id: ID
+}
+
+type ResourceEntityResponse {
+  data: ResourceEntity
+}
+
+type ResourceEntityResponseCollection {
+  data: [ResourceEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ResourceFiltersInput {
+  and: [ResourceFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  inventory_items: InventoryItemFiltersInput
+  locale: StringFilterInput
+  localizations: ResourceFiltersInput
+  name: StringFilterInput
+  not: ResourceFiltersInput
+  or: [ResourceFiltersInput]
+  publishedAt: DateTimeFilterInput
+  status: StringFilterInput
+  supplier: SupplierFiltersInput
+  tasks: TaskFiltersInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ResourceInput {
+  inventory_items: [ID]
+  name: String
+  publishedAt: DateTime
+  status: ENUM_RESOURCE_STATUS
+  supplier: ID
+  tasks: [ID]
+  type: ENUM_RESOURCE_TYPE
+}
+
+type ResourceRelationResponseCollection {
+  data: [ResourceEntity!]!
+}
+
+type ResponseCollectionMeta {
+  pagination: Pagination!
+}
+
+type Shift {
+  createdAt: DateTime
+  date: Date
+  duration: Int
+  employee: UsersPermissionsUserEntityResponse
+  publishedAt: DateTime
+  tasks(filters: TaskFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TaskRelationResponseCollection
+  updatedAt: DateTime
+}
+
+type ShiftEntity {
+  attributes: Shift
+  id: ID
+}
+
+type ShiftEntityResponse {
+  data: ShiftEntity
+}
+
+type ShiftEntityResponseCollection {
+  data: [ShiftEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ShiftFiltersInput {
+  and: [ShiftFiltersInput]
+  createdAt: DateTimeFilterInput
+  date: DateFilterInput
+  duration: IntFilterInput
+  employee: UsersPermissionsUserFiltersInput
+  id: IDFilterInput
+  not: ShiftFiltersInput
+  or: [ShiftFiltersInput]
+  publishedAt: DateTimeFilterInput
+  tasks: TaskFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ShiftInput {
+  date: Date
+  duration: Int
+  employee: ID
+  publishedAt: DateTime
+  tasks: [ID]
+}
+
+input StringFilterInput {
+  and: [String]
+  between: [String]
+  contains: String
+  containsi: String
+  endsWith: String
+  eq: String
+  eqi: String
+  gt: String
+  gte: String
+  in: [String]
+  lt: String
+  lte: String
+  ne: String
+  nei: String
+  not: StringFilterInput
+  notContains: String
+  notContainsi: String
+  notIn: [String]
+  notNull: Boolean
+  null: Boolean
+  or: [String]
+  startsWith: String
+}
+
+type Supplier {
+  contactInfo: String
+  createdAt: DateTime
+  deliveryInfo: [SupplierDeliveryInfoDynamicZone]
+  email: ComponentContactsEMail
+  name: String
+  notes: String
+  order: OrderEntityResponse
+  phone: ComponentContactsPhone
+  publishedAt: DateTime
+  rating: Int
+  resources(filters: ResourceFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ResourceRelationResponseCollection
+  socials(filters: ComponentContactsSocialFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentContactsSocial]
+  updatedAt: DateTime
+}
+
+union SupplierDeliveryInfoDynamicZone = ComponentLogisticsDeliveryByDate | ComponentLogisticsDeliveryByDaysOfTheWeek | ComponentLogisticsDeliveryByInternational | Error
+
+scalar SupplierDeliveryInfoDynamicZoneInput
+
+type SupplierEntity {
+  attributes: Supplier
+  id: ID
+}
+
+type SupplierEntityResponse {
+  data: SupplierEntity
+}
+
+type SupplierEntityResponseCollection {
+  data: [SupplierEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input SupplierFiltersInput {
+  and: [SupplierFiltersInput]
+  contactInfo: StringFilterInput
+  createdAt: DateTimeFilterInput
+  email: ComponentContactsEMailFiltersInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: SupplierFiltersInput
+  notes: StringFilterInput
+  or: [SupplierFiltersInput]
+  order: OrderFiltersInput
+  phone: ComponentContactsPhoneFiltersInput
+  publishedAt: DateTimeFilterInput
+  rating: IntFilterInput
+  resources: ResourceFiltersInput
+  socials: ComponentContactsSocialFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+input SupplierInput {
+  contactInfo: String
+  deliveryInfo: [SupplierDeliveryInfoDynamicZoneInput!]
+  email: ComponentContactsEMailInput
+  name: String
+  notes: String
+  order: ID
+  phone: ComponentContactsPhoneInput
+  publishedAt: DateTime
+  rating: Int
+  resources: [ID]
+  socials: [ComponentContactsSocialInput]
+}
+
+type Task {
+  createdAt: DateTime
+  frequency: ENUM_TASK_FREQUENCY
+  generalRating: ComponentKitsiteSelfAssessment
+  locale: String
+  localizations(filters: TaskFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): TaskRelationResponseCollection
+  name: String
+  procedure: String
+  publishedAt: DateTime
+  resource: ResourceEntityResponse
+  steps(filters: ComponentKitsiteWorkflowItemFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentKitsiteWorkflowItem]
+  type: ENUM_TASK_TYPE
+  updatedAt: DateTime
+}
+
+type TaskEntity {
+  attributes: Task
+  id: ID
+}
+
+type TaskEntityResponse {
+  data: TaskEntity
+}
+
+type TaskEntityResponseCollection {
+  data: [TaskEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input TaskFiltersInput {
+  and: [TaskFiltersInput]
+  createdAt: DateTimeFilterInput
+  frequency: StringFilterInput
+  generalRating: ComponentKitsiteSelfAssessmentFiltersInput
+  id: IDFilterInput
+  locale: StringFilterInput
+  localizations: TaskFiltersInput
+  name: StringFilterInput
+  not: TaskFiltersInput
+  or: [TaskFiltersInput]
+  procedure: StringFilterInput
+  publishedAt: DateTimeFilterInput
+  resource: ResourceFiltersInput
+  steps: ComponentKitsiteWorkflowItemFiltersInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input TaskInput {
+  frequency: ENUM_TASK_FREQUENCY
+  generalRating: ComponentKitsiteSelfAssessmentInput
+  name: String
+  procedure: String
+  publishedAt: DateTime
+  resource: ID
+  steps: [ComponentKitsiteWorkflowItemInput]
+  type: ENUM_TASK_TYPE
+}
+
+type TaskRelationResponseCollection {
+  data: [TaskEntity!]!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  alternativeText: String
+  caption: String
+  createdAt: DateTime
+  ext: String
+  formats: JSON
+  hash: String!
+  height: Int
+  mime: String!
+  name: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [GenericMorph]
+  size: Float!
+  updatedAt: DateTime
+  url: String!
+  width: Int
+}
+
+type UploadFileEntity {
+  attributes: UploadFile
+  id: ID
+}
+
+type UploadFileEntityResponse {
+  data: UploadFileEntity
+}
+
+type UploadFileEntityResponseCollection {
+  data: [UploadFileEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UploadFileFiltersInput {
+  alternativeText: StringFilterInput
+  and: [UploadFileFiltersInput]
+  caption: StringFilterInput
+  createdAt: DateTimeFilterInput
+  ext: StringFilterInput
+  folder: UploadFolderFiltersInput
+  folderPath: StringFilterInput
+  formats: JSONFilterInput
+  hash: StringFilterInput
+  height: IntFilterInput
+  id: IDFilterInput
+  mime: StringFilterInput
+  name: StringFilterInput
+  not: UploadFileFiltersInput
+  or: [UploadFileFiltersInput]
+  previewUrl: StringFilterInput
+  provider: StringFilterInput
+  provider_metadata: JSONFilterInput
+  size: FloatFilterInput
+  updatedAt: DateTimeFilterInput
+  url: StringFilterInput
+  width: IntFilterInput
+}
+
+input UploadFileInput {
+  alternativeText: String
+  caption: String
+  ext: String
+  folder: ID
+  folderPath: String
+  formats: JSON
+  hash: String
+  height: Int
+  mime: String
+  name: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  size: Float
+  url: String
+  width: Int
+}
+
+type UploadFileRelationResponseCollection {
+  data: [UploadFileEntity!]!
+}
+
+type UploadFolder {
+  children(filters: UploadFolderFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFolderRelationResponseCollection
+  createdAt: DateTime
+  files(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  name: String!
+  parent: UploadFolderEntityResponse
+  path: String!
+  pathId: Int!
+  updatedAt: DateTime
+}
+
+type UploadFolderEntity {
+  attributes: UploadFolder
+  id: ID
+}
+
+type UploadFolderEntityResponse {
+  data: UploadFolderEntity
+}
+
+type UploadFolderEntityResponseCollection {
+  data: [UploadFolderEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UploadFolderFiltersInput {
+  and: [UploadFolderFiltersInput]
+  children: UploadFolderFiltersInput
+  createdAt: DateTimeFilterInput
+  files: UploadFileFiltersInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: UploadFolderFiltersInput
+  or: [UploadFolderFiltersInput]
+  parent: UploadFolderFiltersInput
+  path: StringFilterInput
+  pathId: IntFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input UploadFolderInput {
+  children: [ID]
+  files: [ID]
+  name: String
+  parent: ID
+  path: String
+  pathId: Int
+}
+
+type UploadFolderRelationResponseCollection {
+  data: [UploadFolderEntity!]!
+}
+
+type UsersPermissionsCreateRolePayload {
+  ok: Boolean!
+}
+
+type UsersPermissionsDeleteRolePayload {
+  ok: Boolean!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String! = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+  blocked: Boolean
+  confirmed: Boolean
+  email: String
+  id: ID!
+  role: UsersPermissionsMeRole
+  username: String!
+}
+
+type UsersPermissionsMeRole {
+  description: String
+  id: ID!
+  name: String!
+  type: String
+}
+
+type UsersPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type UsersPermissionsPermission {
+  action: String!
+  createdAt: DateTime
+  role: UsersPermissionsRoleEntityResponse
+  updatedAt: DateTime
+}
+
+type UsersPermissionsPermissionEntity {
+  attributes: UsersPermissionsPermission
+  id: ID
+}
+
+input UsersPermissionsPermissionFiltersInput {
+  action: StringFilterInput
+  and: [UsersPermissionsPermissionFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: UsersPermissionsPermissionFiltersInput
+  or: [UsersPermissionsPermissionFiltersInput]
+  role: UsersPermissionsRoleFiltersInput
+  updatedAt: DateTimeFilterInput
+}
+
+type UsersPermissionsPermissionRelationResponseCollection {
+  data: [UsersPermissionsPermissionEntity!]!
+}
+
+input UsersPermissionsRegisterInput {
+  email: String!
+  password: String!
+  username: String!
+}
+
+type UsersPermissionsRole {
+  createdAt: DateTime
+  description: String
+  name: String!
+  permissions(filters: UsersPermissionsPermissionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsPermissionRelationResponseCollection
+  type: String
+  updatedAt: DateTime
+  users(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserRelationResponseCollection
+}
+
+type UsersPermissionsRoleEntity {
+  attributes: UsersPermissionsRole
+  id: ID
+}
+
+type UsersPermissionsRoleEntityResponse {
+  data: UsersPermissionsRoleEntity
+}
+
+type UsersPermissionsRoleEntityResponseCollection {
+  data: [UsersPermissionsRoleEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UsersPermissionsRoleFiltersInput {
+  and: [UsersPermissionsRoleFiltersInput]
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: UsersPermissionsRoleFiltersInput
+  or: [UsersPermissionsRoleFiltersInput]
+  permissions: UsersPermissionsPermissionFiltersInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+  users: UsersPermissionsUserFiltersInput
+}
+
+input UsersPermissionsRoleInput {
+  description: String
+  name: String
+  permissions: [ID]
+  type: String
+  users: [ID]
+}
+
+type UsersPermissionsUpdateRolePayload {
+  ok: Boolean!
+}
+
+type UsersPermissionsUser {
+  blocked: Boolean
+  confirmed: Boolean
+  createdAt: DateTime
+  email: String!
+  provider: String
+  role: UsersPermissionsRoleEntityResponse
+  updatedAt: DateTime
+  username: String!
+}
+
+type UsersPermissionsUserEntity {
+  attributes: UsersPermissionsUser
+  id: ID
+}
+
+type UsersPermissionsUserEntityResponse {
+  data: UsersPermissionsUserEntity
+}
+
+type UsersPermissionsUserEntityResponseCollection {
+  data: [UsersPermissionsUserEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input UsersPermissionsUserFiltersInput {
+  and: [UsersPermissionsUserFiltersInput]
+  blocked: BooleanFilterInput
+  confirmationToken: StringFilterInput
+  confirmed: BooleanFilterInput
+  createdAt: DateTimeFilterInput
+  email: StringFilterInput
+  id: IDFilterInput
+  not: UsersPermissionsUserFiltersInput
+  or: [UsersPermissionsUserFiltersInput]
+  password: StringFilterInput
+  provider: StringFilterInput
+  resetPasswordToken: StringFilterInput
+  role: UsersPermissionsRoleFiltersInput
+  updatedAt: DateTimeFilterInput
+  username: StringFilterInput
+}
+
+input UsersPermissionsUserInput {
+  blocked: Boolean
+  confirmationToken: String
+  confirmed: Boolean
+  email: String
+  password: String
+  provider: String
+  resetPasswordToken: String
+  role: ID
+  username: String
+}
+
+type UsersPermissionsUserRelationResponseCollection {
+  data: [UsersPermissionsUserEntity!]!
+}
+
+type Webpage {
+  content: String
+  createdAt: DateTime
+  publishedAt: DateTime
+  slug: String
+  title: String
+  type: ENUM_WEBPAGE_TYPE
+  updatedAt: DateTime
+}
+
+type WebpageEntity {
+  attributes: Webpage
+  id: ID
+}
+
+type WebpageEntityResponse {
+  data: WebpageEntity
+}
+
+type WebpageEntityResponseCollection {
+  data: [WebpageEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input WebpageFiltersInput {
+  and: [WebpageFiltersInput]
+  content: StringFilterInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: WebpageFiltersInput
+  or: [WebpageFiltersInput]
+  publishedAt: DateTimeFilterInput
+  slug: StringFilterInput
+  title: StringFilterInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input WebpageInput {
+  content: String
+  publishedAt: DateTime
+  slug: String
+  title: String
+  type: ENUM_WEBPAGE_TYPE
+}
+
+type WorkExperience {
+  companyName: String
+  createdAt: DateTime
+  description: String
+  endDate: Date
+  locale: String
+  localizations(filters: WorkExperienceFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkExperienceRelationResponseCollection
+  projects(filters: ProjectFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): ProjectRelationResponseCollection
+  publishedAt: DateTime
+  role: String
+  startDate: Date
+  updatedAt: DateTime
+  working_indutries(filters: WorkingIndutryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkingIndutryRelationResponseCollection
+}
+
+type WorkExperienceEntity {
+  attributes: WorkExperience
+  id: ID
+}
+
+type WorkExperienceEntityResponse {
+  data: WorkExperienceEntity
+}
+
+type WorkExperienceEntityResponseCollection {
+  data: [WorkExperienceEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input WorkExperienceFiltersInput {
+  and: [WorkExperienceFiltersInput]
+  companyName: StringFilterInput
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  endDate: DateFilterInput
+  id: IDFilterInput
+  locale: StringFilterInput
+  localizations: WorkExperienceFiltersInput
+  not: WorkExperienceFiltersInput
+  or: [WorkExperienceFiltersInput]
+  projects: ProjectFiltersInput
+  publishedAt: DateTimeFilterInput
+  role: StringFilterInput
+  startDate: DateFilterInput
+  updatedAt: DateTimeFilterInput
+  working_indutries: WorkingIndutryFiltersInput
+}
+
+input WorkExperienceInput {
+  companyName: String
+  description: String
+  endDate: Date
+  projects: [ID]
+  publishedAt: DateTime
+  role: String
+  startDate: Date
+  working_indutries: [ID]
+}
+
+type WorkExperienceRelationResponseCollection {
+  data: [WorkExperienceEntity!]!
+}
+
+type WorkingIndutry {
+  createdAt: DateTime
+  description: String
+  industryName: String
+  locale: String
+  localizations(filters: WorkingIndutryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkingIndutryRelationResponseCollection
+  publishedAt: DateTime
+  updatedAt: DateTime
+  work_experiences(filters: WorkExperienceFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WorkExperienceRelationResponseCollection
+}
+
+type WorkingIndutryEntity {
+  attributes: WorkingIndutry
+  id: ID
+}
+
+type WorkingIndutryEntityResponse {
+  data: WorkingIndutryEntity
+}
+
+type WorkingIndutryEntityResponseCollection {
+  data: [WorkingIndutryEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input WorkingIndutryFiltersInput {
+  and: [WorkingIndutryFiltersInput]
+  createdAt: DateTimeFilterInput
+  description: StringFilterInput
+  id: IDFilterInput
+  industryName: StringFilterInput
+  locale: StringFilterInput
+  localizations: WorkingIndutryFiltersInput
+  not: WorkingIndutryFiltersInput
+  or: [WorkingIndutryFiltersInput]
+  publishedAt: DateTimeFilterInput
+  updatedAt: DateTimeFilterInput
+  work_experiences: WorkExperienceFiltersInput
+}
+
+input WorkingIndutryInput {
+  description: String
+  industryName: String
+  publishedAt: DateTime
+  work_experiences: [ID]
+}
+
+type WorkingIndutryRelationResponseCollection {
+  data: [WorkingIndutryEntity!]!
+}
+
+type Workshop {
+  agenda: String
+  availableSlots: Int
+  brief: String
+  coverImage: UploadFileEntityResponse
+  createdAt: DateTime
+  date: DateTime
+  duration: Int
+  gallery(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  location: String
+  participants(filters: ComponentEventsWorkshopParticipantFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentEventsWorkshopParticipant]
+  price: Float
+  publishedAt: DateTime
+  slides(filters: UploadFileFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UploadFileRelationResponseCollection
+  slug: String
+  state: ENUM_WORKSHOP_STATE
+  title: String
+  updatedAt: DateTime
+}
+
+type WorkshopEntity {
+  attributes: Workshop
+  id: ID
+}
+
+type WorkshopEntityResponse {
+  data: WorkshopEntity
+}
+
+type WorkshopEntityResponseCollection {
+  data: [WorkshopEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input WorkshopFiltersInput {
+  agenda: StringFilterInput
+  and: [WorkshopFiltersInput]
+  availableSlots: IntFilterInput
+  brief: StringFilterInput
+  createdAt: DateTimeFilterInput
+  date: DateTimeFilterInput
+  duration: IntFilterInput
+  id: IDFilterInput
+  location: StringFilterInput
+  not: WorkshopFiltersInput
+  or: [WorkshopFiltersInput]
+  participants: ComponentEventsWorkshopParticipantFiltersInput
+  price: FloatFilterInput
+  publishedAt: DateTimeFilterInput
+  slug: StringFilterInput
+  state: StringFilterInput
+  title: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input WorkshopInput {
+  agenda: String
+  availableSlots: Int
+  brief: String
+  coverImage: ID
+  date: DateTime
+  duration: Int
+  gallery: [ID]
+  location: String
+  participants: [ComponentEventsWorkshopParticipantInput]
+  price: Float
+  publishedAt: DateTime
+  slides: [ID]
+  slug: String
+  state: ENUM_WORKSHOP_STATE
+  title: String
+}

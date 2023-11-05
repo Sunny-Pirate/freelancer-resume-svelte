@@ -1,4 +1,5 @@
-schema: ${STRAPI_API_URL}/graphql
+name: DreamLab Frontend
+schema: ./src/lib/graphql/schema.graphql
 extensions:
   endpoints:
     production:

@@ -10,7 +10,7 @@
 
 <div class="grid">
   <div class="container py-8 px-4">
-    <a href="/kitsite/workshops"
+    <a href="/experiments/workshops"
        class="bg-gradient-to-br from-brand-400 to-purple-400 text-white px-4 py-2 rounded shadow-md hover:shadow-lg hover:from-brand-500 hover:to-purple-500 transition-shadow duration-700 ease-in-out">
       Workshops
     </a>

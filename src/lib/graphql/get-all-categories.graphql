@@ -1,0 +1,16 @@
+query getAllCategories{
+    categories{
+        data {
+            attributes {
+                name
+                description
+
+            }
+        }
+        meta {
+            pagination {
+                total
+            }
+        }
+    }
+}

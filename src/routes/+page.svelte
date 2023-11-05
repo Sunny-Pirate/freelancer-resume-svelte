@@ -18,7 +18,7 @@
     <h1 class="pageTitle place-self-center">{companyName}</h1>
     <div class="grid grid-cols-2 place-items-center">
       <a href="/index">Website</a>
-      <a href="/kitsite">Kitsite</a>
+      <a href="/experiments">Experiments</a>
     </div>
   </div>
 </div>
