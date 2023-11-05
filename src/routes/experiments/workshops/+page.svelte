@@ -45,7 +45,7 @@
             </div>
             <div class="flex justify-between items-center mt-3 place-self-end self-end gap-2">
               <span class="text-sm font-medium text-gray-800">{availableSlots} Slots</span>
-              <Button href={wsPath} label="More details" bgColor="bg-brand-400" />
+              <Button href={wsPath} label="More details" bgColor="bg-sky-400" />
             </div>
           </div>
         </div>

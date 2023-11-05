@@ -1,12 +1,12 @@
 <script lang="ts">
   export let label: string = "Button Text"
-  export let bgColor: string = "bg-green-400"
+  export let bgColor: string = "bg-green-300"
 
   export let href: string = "#_"
 
   // Extract the color number and increment it for the hover state
   const colorNumber = parseInt(bgColor.replace(/[^0-9]/g, ""))
-  const hoverColorNumber = Math.min(colorNumber + 200, 900) // Ensures the color number does not exceed 900
+  const hoverColorNumber = Math.min(colorNumber + 100, 900) // Ensures the color number does not exceed 900
   const hoverColor = bgColor.replace(colorNumber.toString(), hoverColorNumber.toString())
 
   // Final classes

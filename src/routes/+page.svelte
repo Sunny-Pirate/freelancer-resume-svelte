@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Button from "$lib/components/ui/Button.svelte"
+
   let companyName = "DreamLab.Solutions"
   let sitePurposes = [
     {
@@ -15,10 +17,12 @@
 
 <div class="grid grid-cols-1 grid-rows-1 min-h-full">
   <div class="grid grid-rows-2">
-    <h1 class="pageTitle place-self-center">{companyName}</h1>
+    <div class="self-center place-self-center">
+      <h1 class="place-self-center text-brand-500 text-2xl md:text-4xl font-black">{companyName}</h1>
+    </div>
     <div class="grid grid-cols-2 place-items-center">
-      <a href="/index">Website</a>
-      <a href="/experiments">Experiments</a>
+      <Button href="/index" label="Website" />
+      <Button href="/experiments" label="Experiments" />
     </div>
   </div>
 </div>
