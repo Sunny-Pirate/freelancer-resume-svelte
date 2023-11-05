@@ -11,6 +11,6 @@
 
 <div class="grid">
   <div class="container py-8 px-4">
-    <Button href="/experiments/workshops" label="Workshops" />
+    <Button href="/experiments/workshops" label="Workshops" darkMode />
   </div>
 </div>
