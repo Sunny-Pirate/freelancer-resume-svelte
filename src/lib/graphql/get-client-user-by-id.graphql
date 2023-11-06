@@ -1,0 +1,21 @@
+query getClientUserByID($id: ID!){
+    usersPermissionsUser(id: $id){
+        data {
+            id
+            attributes {
+                username
+                email
+                role{
+                    data {
+                        attributes {
+                            name
+                        }
+                    }
+                }
+                confirmed
+                blocked
+                provider
+            }
+        }
+    }
+}

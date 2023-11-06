@@ -3,7 +3,7 @@ schema: ./src/lib/graphql/schema.graphql
 extensions:
   endpoints:
     production:
-      url: ${STRAPI_API_URL}/graphql
+      url: ${PUBLIC_STRAPI_API_URL}/graphql
       headers:
         user-agent: JS GraphQL
         Authorization: 'Bearer ${STRAPI_API_KEY}'

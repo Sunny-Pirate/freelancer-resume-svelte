@@ -1,5 +1,13 @@
 <script lang="ts">
-    import type { PageData } from './$types';
-    
-    export let data: PageData;
+
 </script>
+
+
+<div>
+    <h1>Categories</h1>
+    <ul>
+      <li>
+        <a href="_#">Category 1</a>
+      </li>
+    </ul>
+</div>

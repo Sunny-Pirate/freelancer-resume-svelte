@@ -1,4 +1,4 @@
-schema: ${STRAPI_API_URL}/graphql
+schema: ${PUBLIC_STRAPI_API_URL}/graphql
 documents:
   - '**/*.{graphql,gql}'
 generates:

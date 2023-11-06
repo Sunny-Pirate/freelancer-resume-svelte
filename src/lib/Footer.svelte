@@ -5,11 +5,13 @@
 
   import { PUBLIC_GITHUB_URL, PUBLIC_LINKEDIN_URL, PUBLIC_WABUSINESS_URL } from "$env/static/public"
 
+
   const socials = [
     { type: "github", label: "github", icon: faGithub, url: PUBLIC_GITHUB_URL },
     { type: "linkedin", label: "linkedin", icon: faLinkedin, url: PUBLIC_LINKEDIN_URL },
     { type: "whatsapp", label: "whatsapp", icon: faWhatsapp, url: PUBLIC_WABUSINESS_URL }
-  ]
+  ];
+
 </script>
 
 <div class="text-xs grid grid-cols-1 grid-rows-2">

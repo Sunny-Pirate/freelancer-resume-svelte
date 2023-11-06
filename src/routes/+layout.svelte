@@ -1,6 +1,8 @@
 <script lang="ts">
 
   import "../app.css"
+  import { page } from "$app/stores"
+
 
 </script>
 
@@ -39,4 +41,4 @@
         @apply max-w-xl place-self-center px-2 text-justify sm:text-left leading-7;
     }
 
-  </style>
+</style>

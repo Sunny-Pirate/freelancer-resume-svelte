@@ -1,7 +1,5 @@
 <script lang="ts">
 
-  import { sharedState } from "$lib/stores/SharedStateStore"
-
   let categories: string[] = []
   let count = 0
 
