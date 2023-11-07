@@ -8,56 +8,76 @@
   export let data: PageData
   const { title, content } = data
 
-  let companyName = "DreamLab.Solutions"
-  let sitePurposes = [
-    {
-      label: "UX Designer", textEffect:
-        "bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500"
-    },
-    { label: "UI Developer", textEffect: "bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-emerald-500" },
-    { label: "Frontend Engineer", textEffect: "bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-amber-500" }
+  $: lines = [] as unknown as { x1: number, x2: number, y1: number, y2: number, color: string }[] // Array to hold our lines
 
-  ]
+  // Function to generate a random line
+  function generateLine() {
+    const x1 = Math.random() * 100
+    const y1 = Math.random() * 100
+    const x2 = Math.random() * 100
+    const y2 = Math.random() * 100
+    const color = `hsl(${Math.random() * 360}, 100%, 50%)`
+    lines = [...lines, { x1, y1, x2, y2, color }]
+  }
+
+  // Generate some lines
+  // for (let i = 0; i < 10; i++) {
+  //   generateLine();
+  // }
 
 
 </script>
 
-<div class="grid grid-cols-1 grid-rows-1 min-h-full">
-  <div class="grid grid-rows-3 container mx-auto max-w-screen-lg">
-    <div class="self-center place-self-center grid grid-cols-1">
-      <h1 class="place-self-center text-brand-500 text-2xl md:text-4xl font-black">{companyName}</h1>
-    </div>
-    <div class="flex-col">
+<div class="hero">
+  <svg class="dynamic-svg absolute w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    {#each lines as line}
+      <line x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke={line.color} />
+    {/each}
+  </svg>
+  <div class="hero-content">
+    <div class="glass-card">
       {@html content}
     </div>
-    <div class="grid grid-cols-2 place-items-center">
-      <Button href="/index" label="Website" />
-      <Button href="/experiments" label="Experiments" />
-      <div class="col-span-2">
-        <Footer />
-      </div>
-    </div>
   </div>
+  <Footer />
 </div>
 
 <svelte:head>
-  <title>DreamLab.Solutions by Luca Faccio</title>
+  <title>{title}</title>
 </svelte:head>
 
-<!--
 <style lang="postcss">
-    span.ndr::before {
-        content: "NDR: ";
-        font-weight: bold;
+    .hero {
+        @apply min-h-screen grid grid-cols-1 grid-rows-[1fr_64px] bg-gradient-to-tr from-[#85FFBD] to-[#FFFB7D];
     }
 
-    span.ndr {
-        @apply block mt-4 text-xs text-right;
+    .hero-content {
+        @apply relative place-self-center self-center;
     }
 
-    span.ndr::after {
-        content: " - Luca F.";
-        font-weight: bold;
+    .glass-card {
+        @apply relative max-w-screen-md mx-auto p-10 backdrop-blur-md hover:backdrop-blur-lg transition-transform;
     }
+
+    @media screen and (min-width: 768px) {
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.1);
+            /*border-radius: 1rem;*/
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 1.2s, backdrop-filter 0.7s;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glass-card:hover::before {
+            transform: rotateY(12deg) rotateZ(5deg);
+            backdrop-filter: blur(6px);
+        }
+    }
+
 </style>
--->

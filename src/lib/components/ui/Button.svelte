@@ -23,7 +23,7 @@
                     <path
                       d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z"
                       fill="#FFF" fill-rule="nonzero" fill-opacity=".1" />
-                  </svg>>
+                  </svg>
   </span>
     <span class="btn-second-layer">
      <svg viewBox="0 0 487 487" class="object-cover w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
   </a>
 {:else}
   <a href={href}
-  class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group">
+     class="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group">
     <span
       class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gradient-to-br from-sky-400 to-fuchsia-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
     <span
@@ -47,11 +47,11 @@
 
 <style lang="postcss">
     .btn-first-layer {
-        @apply absolute bottom-0 left-0 h-full -ml-2;
+        @apply absolute bottom-0 left-0 h-full;
     }
 
     .btn-second-layer {
-        @apply absolute top-0 right-0 w-12 h-full -mr-3;
+        @apply absolute top-0 right-0 w-12 h-full;
     }
 
     .btn-label {

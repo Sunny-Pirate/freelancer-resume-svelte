@@ -1,12 +1,13 @@
 <script lang="ts">
   import { getContext } from 'svelte';
+  import { enhance } from '$app/forms';
 
   // Retrieve user store from context
   const user = getContext('user');
 </script>
 
 <section>
-  <form method="post">
+  <form method="post" use:enhance>
     <div class="group">
       <label for="email">Email</label>
       <input type="email" name="email" id="email" required />

@@ -33,9 +33,6 @@ export const actions: Actions = {
       });
     }
 
-
-    debugger;
-
     // Set the cookie
     event.cookies.set('AuthorizationToken', `Bearer ${token}`, {
       httpOnly: true,
