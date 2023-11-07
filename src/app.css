@@ -1,3 +1,9 @@
+@import "@fontsource/orbitron"; /* Peso 400 */
+@import "@fontsource/orbitron/500.css"; /* Peso 500 */
+@import "@fontsource/orbitron/700.css"; /* Peso 700 */
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

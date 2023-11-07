@@ -39,7 +39,8 @@ export default {
         sans: ["Exo 2", "system-ui", "-apple-system", "BlinkMacSystemFont",
           "Segoe UI", "Helvetica Neue", "sans-serif",
           "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-          "Noto Color Emoji", ...defaultTheme.fontFamily.sans]
+          "Noto Color Emoji", ...defaultTheme.fontFamily.sans],
+        brand: ["Orbitron", "sans-serif"]
         // headings: ['var(--font-raleway)'],
         // body: ['var(--font-raleway)'],
         // code: ['var(--font-jetbrains-mono)'],

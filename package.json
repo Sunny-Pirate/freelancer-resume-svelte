@@ -16,6 +16,7 @@
     "generate": "graphql-codegen --require dotenv/config"
   },
   "dependencies": {
+    "@fontsource/orbitron": "^5.0.17",
     "@fortawesome/free-brands-svg-icons": "6.4.2",
     "@fortawesome/free-solid-svg-icons": "6.4.2",
     "date-fns": "2.30.0",
