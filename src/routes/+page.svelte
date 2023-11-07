@@ -44,8 +44,8 @@
         solutions.
         Innovation,
         agility, and cutting-edge technology dedicated to your growth.</p>
-      <a class="hero-cta" href="_#">Explore Our Services</a>
-      <a class="hero-cta" href="_#">Contact Us</a>
+      <a class="hero-cta" href="#_">Explore Our Services</a>
+      <a class="hero-cta" href="#_">Contact Us</a>
     </div>
   </div>
   <Footer />
