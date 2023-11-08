@@ -25,12 +25,12 @@
 <div class="hero">
   <div class="absolute w-full bg-indigo-100 opacity-50 h-full grid">
 
-    <svg width={innerWidth} height={innerHeight} xmlns="http://www.w3.org/2000/svg">
+    <!--<svg width={innerWidth} height={innerHeight} xmlns="http://www.w3.org/2000/svg">
       {#each curvedLines as line}
         <path d={line.path} stroke={line.color} stroke-width={line.strokeWidth} />
       {/each}
       <path d="M100,300 C265,314 252,109 508,170 " stroke="#000" stroke-width="4px" />
-    </svg>
+    </svg>-->
   </div>
 
   <div class="content-wrapper">
