@@ -8,32 +8,31 @@
   export let data: PageData
   const { title, content } = data
 
-  $: lines = [] as unknown as { x1: number, x2: number, y1: number, y2: number, color: string }[] // Array to hold our lines
+  let innerWidth = 0
+  let innerHeight = 0
 
-  // Function to generate a random line
-  function generateLine() {
-    const x1 = Math.random() * 100
-    const y1 = Math.random() * 100
-    const x2 = Math.random() * 100
-    const y2 = Math.random() * 100
-    const color = `hsl(${Math.random() * 360}, 100%, 50%)`
-    lines = [...lines, { x1, y1, x2, y2, color }]
-  }
 
-  // Generate some lines
-  // for (let i = 0; i < 10; i++) {
-  //   generateLine();
-  // }
+
+
+
 
 
 </script>
 
+
+<svelte:window bind:innerWidth bind:innerHeight />
+
 <div class="hero">
-<!--  <svg class="dynamic-svg absolute mx-auto" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">-->
-<!--    {#each lines as line}-->
-<!--      <line x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} stroke={line.color} />-->
-<!--    {/each}-->
-<!--  </svg>-->
+  <div class="absolute w-full bg-indigo-100 opacity-50 h-full grid">
+
+    <svg width={innerWidth} height={innerHeight} xmlns="http://www.w3.org/2000/svg">
+      {#each curvedLines as line}
+        <path d={line.path} stroke={line.color} stroke-width={line.strokeWidth} />
+      {/each}
+      <path d="M100,300 C265,314 252,109 508,170 " stroke="#000" stroke-width="4px" />
+    </svg>
+  </div>
+
   <div class="content-wrapper">
     <div class="glass-card">
       <div class="absolute">
@@ -63,16 +62,19 @@
     .content-wrapper {
         @apply relative place-self-center self-center;
     }
+
     .glass-card {
         @apply relative max-w-screen-md mx-auto p-10 backdrop-blur-md hover:backdrop-blur-lg transition-transform grid grid-cols-2
         place-items-center items-start;
 
     }
-    .brand-name{
+
+    .brand-name {
         @apply font-brand bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-emerald-400 font-black text-2xl
         md:text-3xl lg:text-5xl leading-7 drop-shadow-lg shadow-sky-400;
     }
-    .hero-title{
+
+    .hero-title {
         @apply col-span-2 font-bold text-xl md:text-2xl lg:text-3xl py-3 md:py-4 leading-5;
     }
 
@@ -80,9 +82,9 @@
         @apply col-span-2 text-gray-700 text-lg md:text-xl lg:text-2xl;
     }
 
-    .hero-cta{
+    .hero-cta {
         @apply cursor-pointer inline-block px-4 py-2 mt-4 text-lg font-bold text-white bg-gradient-to-tr from-violet-500 to-emerald-400
-        rounded-md shadow-md hover:shadow-lg;
+        rounded-md shadow-md hover:shadow-lg transition-shadow duration-500 ease-in;
     }
 
     @media screen and (min-width: 768px) {
